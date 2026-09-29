@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-page: #040A17;
+    --bg-section: #060E1F;
+    --bg-card: rgba(10, 20, 40, 0.85);
+    --border-color: #1A2A4A;
+    --border-highlight: #1E7BFF;
+    --primary: #1E7BFF;
+    --primary-hover: #2D9CFF;
+    --text-main: #FFFFFF;
+    --text-muted: #9FB0CC;
+    --color-success: #22C55E;
+    --color-star: #FFB800;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #040A17;
+    color: #FFFFFF;
+  }
+
+  body {
+    background-color: #040A17;
+    color: #FFFFFF;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    overflow-x: hidden;
+  }
+}
+
+/* Custom glow and utility classes */
+.glow-primary {
+  box-shadow: 0 0 40px rgba(30, 123, 255, 0.28);
+}
+
+.glow-primary-hover:hover {
+  box-shadow: 0 0 30px rgba(30, 123, 255, 0.45);
+}
+
+.glow-card-active {
+  box-shadow: 0 0 35px rgba(30, 123, 255, 0.22);
+}
+
+.glow-stadium {
+  background: radial-gradient(
+    65% 55% at 65% 30%,
+    rgba(30, 123, 255, 0.16) 0%,
+    rgba(14, 46, 102, 0.08) 50%,
+    transparent 100%
+  );
+}
+
+.gradient-text-blue {
+  background: linear-gradient(135deg, #1E7BFF 0%, #2D9CFF 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-border-top {
+  position: relative;
+}
+
+.gradient-border-top::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(30, 123, 255, 0.6) 25%,
+    rgba(45, 156, 255, 0.8) 50%,
+    rgba(30, 123, 255, 0.6) 75%,
+    transparent 100%
+  );
+}
+
+/* Custom scrollbar for modern dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #040A17;
+}
+::-webkit-scrollbar-thumb {
+  background: #1A2A4A;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1E7BFF;
+}
+
+/* Hide scrollbar for carousel tracks */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
