@@ -212,7 +212,7 @@ export default function IboPlayerHubPage() {
                 </ul>
 
                 <Link
-                  href="/commander/?plan=ibo-pack-12m"
+                  href="/commander/?plan=12-mois"
                   className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-sm font-bold text-white bg-[#1E7BFF] hover:bg-[#2D9CFF] glow-primary transition-all"
                 >
                   <span>Commander le Pack Tout Inclus</span>

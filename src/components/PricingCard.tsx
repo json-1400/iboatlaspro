@@ -18,6 +18,14 @@ export function PricingCard({ plan }: PricingCardProps) {
     features,
   } = plan;
 
+  const planSlugMap: Record<string, string> = {
+    "plan-1m": "1-mois",
+    "plan-3m": "3-mois",
+    "plan-6m": "6-mois",
+    "plan-12m": "12-mois",
+  };
+  const targetPlan = planSlugMap[plan.id] || "12-mois";
+
   return (
     <div
       className={`relative flex flex-col justify-between p-6 sm:p-7 rounded-xl transition-all duration-200 ${
@@ -64,7 +72,7 @@ export function PricingCard({ plan }: PricingCardProps) {
         {/* CTA Button */}
         <div className="mt-6 mb-7">
           <Link
-            href="#contact"
+            href={`/commander/?plan=${targetPlan}`}
             className={`w-full inline-flex items-center justify-center px-5 py-3 rounded-full text-sm font-semibold transition-all duration-200 ${
               isHighlighted
                 ? "bg-[#1E7BFF] text-white hover:bg-[#2D9CFF] glow-primary"

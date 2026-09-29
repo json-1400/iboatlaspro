@@ -1,7 +1,8 @@
 // CLIENT: interactive multi-step checkout flow
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -15,12 +16,38 @@ import {
 } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 
-export default function CommanderPage() {
-  const [selectedPlan, setSelectedPlan] = useState("12-mois");
+function normalizePlan(raw: string | null): string {
+  if (!raw) return "12-mois";
+  const map: Record<string, string> = {
+    "1-mois": "1-mois",
+    "3-mois": "3-mois",
+    "6-mois": "6-mois",
+    "12-mois": "12-mois",
+    "plan-1m": "1-mois",
+    "plan-3m": "3-mois",
+    "plan-6m": "6-mois",
+    "plan-12m": "12-mois",
+    "smarters-12m": "12-mois",
+    "ibo-pack-12m": "12-mois",
+  };
+  return map[raw] || "12-mois";
+}
+
+function CommanderContent() {
+  const searchParams = useSearchParams();
+  const paramPlan = searchParams.get("plan");
+
+  const [selectedPlan, setSelectedPlan] = useState(() => normalizePlan(paramPlan));
   const [deviceType, setDeviceType] = useState("smart-tv");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+
+  useEffect(() => {
+    if (paramPlan) {
+      setSelectedPlan(normalizePlan(paramPlan));
+    }
+  }, [paramPlan]);
   const [macAddress, setMacAddress] = useState("");
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -349,5 +376,19 @@ export default function CommanderPage() {
 
       <Footer />
     </div>
+  );
+}
+
+export default function CommanderPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-[#040A17] flex items-center justify-center text-white">
+          <div className="w-8 h-8 border-2 border-[#1E7BFF] border-t-transparent rounded-full animate-spin" />
+        </div>
+      }
+    >
+      <CommanderContent />
+    </Suspense>
   );
 }

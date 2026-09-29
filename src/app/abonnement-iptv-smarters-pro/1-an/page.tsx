@@ -93,7 +93,7 @@ export default function SmartersPro1AnPage() {
 
               <div className="pt-2">
                 <Link
-                  href="/commander/?plan=smarters-12m"
+                  href="/commander/?plan=12-mois"
                   className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full text-base font-bold text-white bg-[#1E7BFF] hover:bg-[#2D9CFF] glow-primary transition-all duration-200"
                 >
                   <span>Commander l&apos;offre 1 an Smarters Pro</span>
