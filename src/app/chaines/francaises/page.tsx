@@ -98,7 +98,7 @@ export default function ChainesFrancaisesPage() {
                 href="/abonnement-atlas-pro/12-mois/"
                 className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-bold text-white bg-[#1E7BFF] hover:bg-[#2D9CFF] glow-primary transition-all"
               >
-                <span>Commander la formule 12 mois (49,99 €)</span>
+                <span>Commander la formule 12 mois (39,99 €)</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -108,7 +108,7 @@ export default function ChainesFrancaisesPage() {
 
       <StickyCTA
         title="Abonnement IPTV Français 4K"
-        buttonText="Commander (4,16 €/mois)"
+        buttonText="Commander (3,33 €/mois)"
         href="/abonnement-atlas-pro/12-mois/"
       />
       <Footer />

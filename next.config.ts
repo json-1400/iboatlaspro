@@ -11,6 +11,20 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/abonnement-atlas-pro/1-mois",
+        destination: "/abonnement-atlas-pro/12-mois/",
+        permanent: true,
+      },
+      {
+        source: "/abonnement-atlas-pro/1-mois/",
+        destination: "/abonnement-atlas-pro/12-mois/",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

@@ -45,13 +45,13 @@ export default function IptvSmartersProHubPage() {
           description="Profitez de l'application IPTV la plus populaire au monde avec des identifiants Xtream Codes optimisés sur nos serveurs haute performance sans coupure."
           primaryCtaText="Voir nos formules Smarters"
           primaryCtaHref="#pricing"
-          secondaryCtaText="Formule 12 mois (49,99 €)"
+          secondaryCtaText="Formule 12 mois (39,99 €)"
           secondaryCtaHref="/abonnement-iptv-smarters-pro/1-an/"
         />
 
         {/* Sub-silo Quick Navigation */}
         <section className="py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <Link
               href="/abonnement-iptv-smarters-pro/1-an/"
               className="p-6 rounded-2xl bg-[#0A1428] border border-[#1A2A4A] hover:border-[#1E7BFF] transition-all group flex items-center justify-between"
@@ -61,13 +61,31 @@ export default function IptvSmartersProHubPage() {
                   FORMULE LA PLUS POPULAIRE
                 </span>
                 <h2 className="text-lg font-bold text-white mt-1 group-hover:text-[#1E7BFF] transition-colors">
-                  Abonnement IPTV Smarters Pro 1 An
+                  Abonnement Smarters Pro 1 An
                 </h2>
                 <p className="text-xs text-[#9FB0CC] mt-1">
-                  12 mois d&apos;accès complet à 49,99 € (soit 4,16 € / mois).
+                  12 mois d&apos;accès complet à 39,99 € (soit 3,33 € / mois).
                 </p>
               </div>
               <ArrowRight className="w-5 h-5 text-[#9FB0CC] group-hover:text-[#1E7BFF] group-hover:translate-x-1 transition-all flex-shrink-0" />
+            </Link>
+
+            <Link
+              href="/abonnement-iptv-smarters-pro/multi-ecrans/"
+              className="p-6 rounded-2xl bg-[#0A1428] border border-[#1A2A4A] hover:border-[#22C55E] transition-all group flex items-center justify-between"
+            >
+              <div>
+                <span className="text-xs text-[#22C55E] font-bold uppercase tracking-wider">
+                  NOUVEAUTÉ MULTI-ÉCRANS
+                </span>
+                <h2 className="text-lg font-bold text-white mt-1 group-hover:text-[#22C55E] transition-colors">
+                  Smarters Pro Multi-Écran
+                </h2>
+                <p className="text-xs text-[#9FB0CC] mt-1">
+                  Connectez 2 appareils simultanés (+20 €).
+                </p>
+              </div>
+              <ArrowRight className="w-5 h-5 text-[#9FB0CC] group-hover:text-[#22C55E] group-hover:translate-x-1 transition-all flex-shrink-0" />
             </Link>
 
             <Link
@@ -75,14 +93,14 @@ export default function IptvSmartersProHubPage() {
               className="p-6 rounded-2xl bg-[#0A1428] border border-[#1A2A4A] hover:border-[#1E7BFF] transition-all group flex items-center justify-between"
             >
               <div>
-                <span className="text-xs text-[#22C55E] font-bold uppercase tracking-wider">
+                <span className="text-xs text-[#FFB800] font-bold uppercase tracking-wider">
                   GRILLE TARIFAIRE
                 </span>
                 <h2 className="text-lg font-bold text-white mt-1 group-hover:text-[#1E7BFF] transition-colors">
-                  Comparatif des Prix IPTV Smarters
+                  Comparatif des Prix
                 </h2>
                 <p className="text-xs text-[#9FB0CC] mt-1">
-                  Détail de toutes nos formules (1, 3, 6 et 12 mois).
+                  Détail de toutes nos formules (3, 6 et 12 mois).
                 </p>
               </div>
               <ArrowRight className="w-5 h-5 text-[#9FB0CC] group-hover:text-[#1E7BFF] group-hover:translate-x-1 transition-all flex-shrink-0" />
@@ -145,7 +163,7 @@ export default function IptvSmartersProHubPage() {
 
       <StickyCTA
         title="Abonnement IPTV Smarters Pro 12 mois"
-        buttonText="Commander (49,99 €)"
+        buttonText="Commander (39,99 €)"
         href="/abonnement-iptv-smarters-pro/1-an/"
       />
       <Footer />

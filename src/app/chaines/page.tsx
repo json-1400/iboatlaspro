@@ -116,7 +116,7 @@ export default function ChainesHubPage() {
 
       <StickyCTA
         title="Profitez de toutes ces chaînes en 4K"
-        buttonText="Abonnement 12 mois (4,16 €/mois)"
+        buttonText="Abonnement 12 mois (3,33 €/mois)"
         href="/abonnement-atlas-pro/12-mois/"
       />
       <Footer />

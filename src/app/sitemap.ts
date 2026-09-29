@@ -7,7 +7,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     "",
     "/abonnement-atlas-pro/",
-    "/abonnement-atlas-pro/1-mois/",
     "/abonnement-atlas-pro/12-mois/",
     "/abonnement-atlas-pro/multi-ecrans/",
     "/abonnement-atlas-pro/essai-gratuit/",

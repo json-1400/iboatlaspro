@@ -1,8 +1,8 @@
 import { z } from "zod";
 
 export const OrderSchema = z.object({
-  planId: z.enum(["1-mois", "3-mois", "6-mois", "12-mois"], {
-    message: "Veuillez sélectionner un forfait valide",
+  planId: z.enum(["3-mois", "6-mois", "12-mois"], {
+    message: "Veuillez sélectionner un forfait valide (3, 6 ou 12 mois)",
   }),
   deviceType: z.string().min(1, "Veuillez sélectionner votre type d'appareil"),
   name: z.string().min(2, "Le nom doit comporter au moins 2 caractères"),

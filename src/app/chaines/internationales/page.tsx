@@ -232,14 +232,14 @@ export default function ChainesInternationalesPage() {
                 Accédez à toutes les chaînes internationales dès maintenant
               </h3>
               <p className="text-xs sm:text-sm text-[#9FB0CC] max-w-xl mx-auto leading-relaxed">
-                Optez pour notre formule Atlas Pro 12 mois : l&apos;intégralité des 10 000 chaînes mondiales, les bouquets sportifs 4K et 50 000 films et séries VOD inclus pour 49,99 € l&apos;année.
+                Optez pour notre formule Atlas Pro 12 mois : l&apos;intégralité des 10 000 chaînes mondiales, les bouquets sportifs 4K et 50 000 films et séries VOD inclus pour 39,99 € l&apos;année.
               </p>
               <div className="pt-2">
                 <Link
                   href="/abonnement-atlas-pro/12-mois/"
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-sm sm:text-base font-bold text-white bg-[#1E7BFF] hover:bg-[#2D9CFF] glow-primary transition-all"
                 >
-                  <span>Commander l&apos;abonnement 12 mois complet (49,99 €)</span>
+                  <span>Commander l&apos;abonnement 12 mois complet (39,99 €)</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -250,7 +250,7 @@ export default function ChainesInternationalesPage() {
 
       <StickyCTA
         title="10 000 chaînes internationales en 4K sans coupure"
-        buttonText="Commander (49,99 €)"
+        buttonText="Commander (39,99 €)"
         href="/abonnement-atlas-pro/12-mois/"
       />
       <Footer />

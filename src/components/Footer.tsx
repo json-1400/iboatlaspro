@@ -81,9 +81,9 @@ export function Footer() {
               <li>
                 <Link
                   href="/abonnement-atlas-pro/12-mois/"
-                  className="text-[#9FB0CC] hover:text-white transition-colors"
+                  className="text-white font-semibold hover:text-[#1E7BFF] transition-colors"
                 >
-                  Abonnement IPTV 12 Mois (49,99 €)
+                  Abonnement IPTV 12 Mois (39,99 €)
                 </Link>
               </li>
               <li>
@@ -92,14 +92,6 @@ export function Footer() {
                   className="text-[#9FB0CC] hover:text-white transition-colors"
                 >
                   Abonnement Atlas Pro Officiel
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/abonnement-atlas-pro/1-mois/"
-                  className="text-[#9FB0CC] hover:text-white transition-colors"
-                >
-                  Abonnement 1 Mois Sans Engagement
                 </Link>
               </li>
               <li>

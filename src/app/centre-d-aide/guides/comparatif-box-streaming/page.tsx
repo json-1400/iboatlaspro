@@ -139,7 +139,7 @@ export default function ComparatifBoxPage() {
               href="/abonnement-atlas-pro/12-mois/"
               className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-bold text-white bg-[#1E7BFF] hover:bg-[#2D9CFF] glow-primary transition-all"
             >
-              <span>Découvrir notre offre 12 mois à 49,99 €</span>
+              <span>Découvrir notre offre 12 mois à 39,99 €</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

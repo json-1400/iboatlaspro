@@ -1,4 +1,4 @@
-export type PlanDuration = "1-mois" | "3-mois" | "6-mois" | "12-mois";
+export type PlanDuration = "3-mois" | "6-mois" | "12-mois";
 
 export interface PlanConfig {
   readonly id: PlanDuration;
@@ -9,13 +9,6 @@ export interface PlanConfig {
 }
 
 export const PLAN_CONFIGS: Record<PlanDuration, PlanConfig> = {
-  "1-mois": {
-    id: "1-mois",
-    name: "Abonnement 1 Mois",
-    durationDays: 30,
-    price: 9.99,
-    priceFormatted: "9,99 €",
-  },
   "3-mois": {
     id: "3-mois",
     name: "Abonnement 3 Mois",
@@ -34,26 +27,20 @@ export const PLAN_CONFIGS: Record<PlanDuration, PlanConfig> = {
     id: "12-mois",
     name: "Abonnement 12 Mois (1 An)",
     durationDays: 365,
-    price: 49.99,
-    priceFormatted: "49,99 €",
+    price: 39.99,
+    priceFormatted: "39,99 €",
   },
 };
 
 /**
  * Calculates the exact price based on plan and number of simultaneous screens.
- * 1 screen: 1.0x (standard)
- * 2 screens: 1.7x (discounted second connection)
- * 3 screens: 2.3x (discounted family pack)
+ * Base price includes 1 screen.
+ * Each additional screen is +20.00 €.
  */
 export function calculateOrderAmount(planId: PlanDuration, devicesCount = 1): number {
-  const base = PLAN_CONFIGS[planId]?.price ?? 49.99;
-  if (devicesCount === 2) {
-    return Math.round(base * 1.7 * 100) / 100;
-  }
-  if (devicesCount === 3) {
-    return Math.round(base * 2.3 * 100) / 100;
-  }
-  return base;
+  const base = PLAN_CONFIGS[planId]?.price ?? 39.99;
+  const extraScreens = Math.max(0, devicesCount - 1);
+  return Math.round((base + extraScreens * 20.0) * 100) / 100;
 }
 
 export interface SubscriptionStatus {

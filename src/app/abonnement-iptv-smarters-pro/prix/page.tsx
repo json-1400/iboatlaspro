@@ -8,9 +8,9 @@ import { ArrowRight, HelpCircle } from "lucide-react";
 
 export function generateMetadata(): Metadata {
   return {
-    title: "Prix Abonnement IPTV Smarters Pro : Tarifs 1, 3, 6 et 12 Mois",
+    title: "Prix Abonnement IPTV Smarters Pro : Tarifs 3, 6 et 12 Mois",
     description:
-      "Consultez les prix officiels de nos abonnements pour IPTV Smarters Pro. À partir de 9,99 € par mois jusqu'à 49,99 € l'année. Sans coupure et compatible tous supports.",
+      "Consultez les prix officiels de nos abonnements pour IPTV Smarters Pro. De 19,99 € pour 3 mois jusqu'à 39,99 € l'année. Sans coupure et compatible tous supports.",
     alternates: {
       canonical: "https://iboatlaspro.com/abonnement-iptv-smarters-pro/prix/",
     },

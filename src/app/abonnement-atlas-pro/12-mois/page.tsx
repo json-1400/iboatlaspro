@@ -10,7 +10,7 @@ export function generateMetadata(): Metadata {
   return {
     title: "Abonnement IPTV 12 Mois Pas Cher : Atlas Pro 4K Sans Coupure",
     description:
-      "Abonnement IPTV 12 mois au meilleur prix : seulement 49,99 € (soit 4,16 €/mois). Accès à toutes les chaînes et VOD 4K/FHD avec serveurs stables. Activation sous 15 min.",
+      "Abonnement IPTV 12 mois au meilleur prix : seulement 39,99 € (soit 3,33 €/mois). Accès à toutes les chaînes et VOD 4K/FHD avec serveurs stables. Activation sous 15 min.",
     alternates: {
       canonical: "https://iboatlaspro.com/abonnement-atlas-pro/12-mois/",
     },
@@ -57,7 +57,7 @@ export default function AtlasPro12MoisPage() {
               <p className="mt-4 text-base sm:text-lg text-[#9FB0CC] leading-relaxed">
                 Optez pour la tranquillité d&apos;esprit pendant un an entier.
                 Bénéficiez du tarif le plus économique à seulement{" "}
-                <strong className="text-white font-bold">4,16 € / mois</strong>{" "}
+                <strong className="text-white font-bold">3,33 € / mois</strong>{" "}
                 avec une garantie de stabilité 99.9%.
               </p>
             </div>
@@ -68,12 +68,12 @@ export default function AtlasPro12MoisPage() {
                 <div className="md:col-span-7 space-y-6">
                   <div className="flex items-center gap-3">
                     <span className="text-4xl sm:text-5xl font-extrabold text-white">
-                      € 49,99
+                      € 39,99
                     </span>
                     <span className="text-sm text-[#9FB0CC] font-medium">
                       pour 12 mois complets <br />
                       <span className="text-[#22C55E] font-bold">
-                        (Soit 4,16 € / mois)
+                        (Soit 3,33 € / mois)
                       </span>
                     </span>
                   </div>
@@ -130,7 +130,7 @@ export default function AtlasPro12MoisPage() {
       </main>
 
       <StickyCTA
-        title="Offre 12 mois Atlas Pro à 49,99 €"
+        title="Offre 12 mois Atlas Pro à 39,99 €"
         buttonText="Commander maintenant"
         href="/commander/?plan=12-mois"
       />

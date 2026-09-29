@@ -24,11 +24,11 @@ import {
 function normalizePlan(raw: string | null): PlanDuration {
   if (!raw) return "12-mois";
   const map: Record<string, PlanDuration> = {
-    "1-mois": "1-mois",
+    "1-mois": "3-mois",
     "3-mois": "3-mois",
     "6-mois": "6-mois",
     "12-mois": "12-mois",
-    "plan-1m": "1-mois",
+    "plan-1m": "3-mois",
     "plan-3m": "3-mois",
     "plan-6m": "6-mois",
     "plan-12m": "12-mois",
@@ -67,7 +67,6 @@ function CommanderContent() {
   const breadcrumbItems = [{ label: "Commander", href: "/commander/" }];
 
   const plans: { id: PlanDuration; name: string; basePrice: number; price: string; desc: string }[] = [
-    { id: "1-mois", name: "1 Mois", basePrice: 9.99, price: "9,99 €", desc: "Sans engagement" },
     { id: "3-mois", name: "3 Mois", basePrice: 19.99, price: "19,99 €", desc: "soit 6,66 € / mois" },
     {
       id: "6-mois",
@@ -79,9 +78,9 @@ function CommanderContent() {
     {
       id: "12-mois",
       name: "12 Mois",
-      basePrice: 49.99,
-      price: "49,99 €",
-      desc: "soit 4,16 € / mois - Recommandé",
+      basePrice: 39.99,
+      price: "39,99 €",
+      desc: "soit 3,33 € / mois - Recommandé",
     },
   ];
 
@@ -195,7 +194,7 @@ function CommanderContent() {
                       Sans engagement
                     </span>
                   </div>
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                     {plans.map((p) => (
                       <button
                         key={p.id}
@@ -228,14 +227,14 @@ function CommanderContent() {
                       2. Nombre d&apos;écrans simultanés (Multi-Connexions)
                     </h2>
                     <span className="text-xs text-[#22C55E] font-medium">
-                      Usage familial possible
+                      +20 € par écran supplémentaire
                     </span>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                     {[
                       { count: 1, label: "1 Écran Standard", tag: "Inclus dans l'offre", extra: "Pour 1 téléviseur ou smartphone" },
-                      { count: 2, label: "2 Écrans Simultanés", tag: "Pack Duo (+70%)", extra: "Regardez en même temps sur 2 écrans" },
-                      { count: 3, label: "3 Écrans Simultanés", tag: "Pack Famille (+130%)", extra: "Accès complet pour toute la maison" },
+                      { count: 2, label: "2 Écrans Simultanés", tag: "+20,00 € seulement", extra: "Regardez en même temps sur 2 écrans" },
+                      { count: 3, label: "3 Écrans Simultanés", tag: "+40,00 € seulement", extra: "Accès complet pour toute la maison" },
                     ].map((opt) => (
                       <button
                         key={opt.count}

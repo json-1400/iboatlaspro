@@ -122,7 +122,7 @@ export default function ChainesSportPage() {
                   href="/abonnement-atlas-pro/12-mois/"
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-sm sm:text-base font-bold text-white bg-[#1E7BFF] hover:bg-[#2D9CFF] glow-primary transition-all"
                 >
-                  <span>Regarder tous les matchs en direct avec l&apos;offre 12 mois (49,99 €)</span>
+                  <span>Regarder tous les matchs en direct avec l&apos;offre 12 mois (39,99 €)</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -133,7 +133,7 @@ export default function ChainesSportPage() {
 
       <StickyCTA
         title="Accédez à tous les matchs en direct"
-        buttonText="Abonnement 1 an (49,99 €)"
+        buttonText="Abonnement 1 an (39,99 €)"
         href="/abonnement-atlas-pro/12-mois/"
       />
       <Footer />

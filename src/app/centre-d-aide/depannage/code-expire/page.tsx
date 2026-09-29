@@ -84,7 +84,7 @@ export default function CodeExpirePage() {
                     FORMULE DE RENOUVELLEMENT 12 MOIS
                   </span>
                   <div className="text-3xl sm:text-4xl font-extrabold text-white mt-1">
-                    € 49,99{" "}
+                    € 39,99{" "}
                     <span className="text-xs font-normal text-[#9FB0CC]">
                       pour un an complet
                     </span>

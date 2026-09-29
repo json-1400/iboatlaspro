@@ -35,7 +35,7 @@ export default function MultiEcransPage() {
   const plans = [
     {
       name: "Pack Solo (1 Écran)",
-      price: "49,99 €",
+      price: "39,99 €",
       period: "12 Mois",
       desc: "Idéal pour un téléviseur principal",
       devices: "1 Connexion",
@@ -51,12 +51,12 @@ export default function MultiEcransPage() {
     },
     {
       name: "Pack Duo (2 Écrans)",
-      price: "84,99 €",
+      price: "59,99 €",
       period: "12 Mois",
-      desc: "Salon + Chambre en simultané",
+      desc: "Salon + Chambre en simultané (+20 €)",
       devices: "2 Connexions Actives",
       ctaHref: "/commander/?plan=12-mois&devices=2",
-      ctaText: "Commander Pack Duo (2 Écrans)",
+      ctaText: "Commander Pack Duo (59,99 €)",
       features: [
         "2 Flux 4K indépendants en même temps",
         "Zéro blocage ou coupure entre appareils",
@@ -69,12 +69,12 @@ export default function MultiEcransPage() {
     },
     {
       name: "Pack Famille (3 Écrans)",
-      price: "114,99 €",
+      price: "79,99 €",
       period: "12 Mois",
-      desc: "Pour toute la maison en simultané",
+      desc: "Pour toute la maison en simultané (+40 €)",
       devices: "3 Connexions Actives",
       ctaHref: "/commander/?plan=12-mois&devices=3",
-      ctaText: "Commander Pack Famille",
+      ctaText: "Commander Pack Famille (79,99 €)",
       features: [
         "3 Flux 4K simultanés sans partage de débit",
         "Chacun regarde son programme librement",
@@ -116,8 +116,8 @@ export default function MultiEcransPage() {
         offers: {
           "@type": "AggregateOffer",
           priceCurrency: "EUR",
-          lowPrice: "49.99",
-          highPrice: "114.99",
+          lowPrice: "39.99",
+          highPrice: "79.99",
           offerCount: "3",
         },
       },

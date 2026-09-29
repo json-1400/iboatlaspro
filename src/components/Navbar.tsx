@@ -49,11 +49,18 @@ const NAV_MENU: readonly NavSection[] = [
         badge: "Populaire",
       },
       {
-        title: "Offre 12 Mois (4,16 €/mois)",
-        desc: "Accès complet annuel au meilleur prix",
+        title: "Offre 12 Mois (3,33 €/mois)",
+        desc: "Accès annuel complet à 39,99 € seulement",
         href: "/abonnement-atlas-pro/12-mois/",
         icon: ShieldCheck,
-        badge: "-58%",
+        badge: "39,99 €",
+      },
+      {
+        title: "Multi-Écrans (2 à 3 TV)",
+        desc: "Diffusion simultanée salon & chambre",
+        href: "/abonnement-atlas-pro/multi-ecrans/",
+        icon: Globe,
+        badge: "+20 €",
       },
       {
         title: "IBO Player Pro",

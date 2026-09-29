@@ -119,7 +119,7 @@ export default function SmartTvInstallationGuide() {
                 href="/abonnement-atlas-pro/12-mois/"
                 className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-bold text-white bg-[#1E7BFF] hover:bg-[#2D9CFF] glow-primary transition-all"
               >
-                <span>Commander l&apos;abonnement 12 mois Smart TV (49,99 €)</span>
+                <span>Commander l&apos;abonnement 12 mois Smart TV (39,99 €)</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>

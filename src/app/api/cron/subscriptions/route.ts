@@ -47,7 +47,7 @@ export async function GET(req: NextRequest) {
             customerName: "Marc V.",
             customerEmail: "marc.v@example.com",
             customerPhone: "+33612345678",
-            planId: "1-mois",
+            planId: "3-mois",
             purchaseDate: new Date(Date.now() - 28 * 24 * 60 * 60 * 1000).toISOString(),
           },
           {

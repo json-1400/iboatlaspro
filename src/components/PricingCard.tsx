@@ -19,7 +19,6 @@ export function PricingCard({ plan }: PricingCardProps) {
   } = plan;
 
   const planSlugMap: Record<string, string> = {
-    "plan-1m": "1-mois",
     "plan-3m": "3-mois",
     "plan-6m": "6-mois",
     "plan-12m": "12-mois",

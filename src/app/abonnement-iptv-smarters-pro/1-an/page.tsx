@@ -9,7 +9,7 @@ export function generateMetadata(): Metadata {
   return {
     title: "Abonnement IPTV Smarters Pro 1 An : Pack 12 Mois 4K Pas Cher",
     description:
-      "Abonnement IPTV Smarters Pro 1 an pour seulement 49,99 €. Accédez à +10 000 chaînes HD/FHD/4K sans coupure avec vos identifiants Xtream Codes officiels.",
+      "Abonnement IPTV Smarters Pro 1 an pour seulement 39,99 €. Accédez à +10 000 chaînes HD/FHD/4K sans coupure avec vos identifiants Xtream Codes officiels.",
     alternates: {
       canonical: "https://iboatlaspro.com/abonnement-iptv-smarters-pro/1-an/",
     },
@@ -66,10 +66,10 @@ export default function SmartersPro1AnPage() {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-6 border-b border-[#1A2A4A] gap-4">
                 <div>
                   <div className="text-4xl font-extrabold text-white">
-                    € 49,99
+                    € 39,99
                   </div>
                   <div className="text-xs text-[#22C55E] font-bold mt-1">
-                    Soit seulement 4,16 € / mois (Paiement unique pour 365 jours)
+                    Soit seulement 3,33 € / mois (Paiement unique pour 365 jours)
                   </div>
                 </div>
                 <div className="flex items-center gap-1 text-[#FFB800]">

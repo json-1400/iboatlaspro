@@ -71,9 +71,9 @@ const jsonLdGraph = {
       offers: {
         "@type": "AggregateOffer",
         priceCurrency: "EUR",
-        lowPrice: "9.99",
-        highPrice: "49.99",
-        offerCount: "4",
+        lowPrice: "19.99",
+        highPrice: "79.99",
+        offerCount: "3",
       },
       aggregateRating: {
         "@type": "AggregateRating",
