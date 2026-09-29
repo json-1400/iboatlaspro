@@ -39,6 +39,23 @@ export const PLAN_CONFIGS: Record<PlanDuration, PlanConfig> = {
   },
 };
 
+/**
+ * Calculates the exact price based on plan and number of simultaneous screens.
+ * 1 screen: 1.0x (standard)
+ * 2 screens: 1.7x (discounted second connection)
+ * 3 screens: 2.3x (discounted family pack)
+ */
+export function calculateOrderAmount(planId: PlanDuration, devicesCount = 1): number {
+  const base = PLAN_CONFIGS[planId]?.price ?? 49.99;
+  if (devicesCount === 2) {
+    return Math.round(base * 1.7 * 100) / 100;
+  }
+  if (devicesCount === 3) {
+    return Math.round(base * 2.3 * 100) / 100;
+  }
+  return base;
+}
+
 export interface SubscriptionStatus {
   readonly purchaseDate: Date;
   readonly expirationDate: Date;

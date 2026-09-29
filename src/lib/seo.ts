@@ -67,3 +67,6 @@ export function constructMetadata({
         },
   };
 }
+
+export const buildMetadata = constructMetadata;
+

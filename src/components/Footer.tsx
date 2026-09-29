@@ -120,6 +120,30 @@ export function Footer() {
               </li>
               <li>
                 <Link
+                  href="/abonnement-atlas-pro/multi-ecrans/"
+                  className="text-[#22C55E] font-medium hover:underline flex items-center gap-1"
+                >
+                  <span>Abonnement IPTV Multi-Écrans</span>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/abonnement-ibo-player/multi-tv/"
+                  className="text-[#9FB0CC] hover:text-white transition-colors"
+                >
+                  IBO Player sur 2 TV
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/abonnement-iptv-smarters-pro/multi-ecrans/"
+                  className="text-[#9FB0CC] hover:text-white transition-colors"
+                >
+                  IPTV Smarters Multi-Écran
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/abonnement-atlas-pro/essai-gratuit/"
                   className="text-[#1E7BFF] font-semibold hover:underline"
                 >

@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useEffect, Suspense } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -10,15 +10,20 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import {
   ShieldCheck,
   Zap,
-  CheckCircle2,
   Lock,
   ArrowRight,
+  Tv,
+  Check,
+  RefreshCw,
 } from "lucide-react";
-import { FaWhatsapp } from "react-icons/fa";
+import {
+  calculateOrderAmount,
+  PlanDuration,
+} from "@/lib/subscriptions";
 
-function normalizePlan(raw: string | null): string {
+function normalizePlan(raw: string | null): PlanDuration {
   if (!raw) return "12-mois";
-  const map: Record<string, string> = {
+  const map: Record<string, PlanDuration> = {
     "1-mois": "1-mois",
     "3-mois": "3-mois",
     "6-mois": "6-mois",
@@ -34,45 +39,53 @@ function normalizePlan(raw: string | null): string {
 }
 
 function CommanderContent() {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const paramPlan = searchParams.get("plan");
 
-  const [selectedPlan, setSelectedPlan] = useState(() => normalizePlan(paramPlan));
+  const [selectedPlan, setSelectedPlan] = useState<PlanDuration>(() =>
+    normalizePlan(paramPlan)
+  );
+  const [devicesCount, setDevicesCount] = useState<number>(1);
   const [deviceType, setDeviceType] = useState("smart-tv");
+  const [isRenewal, setIsRenewal] = useState<boolean>(false);
+  const [existingCode, setExistingCode] = useState<string>("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [macAddress, setMacAddress] = useState("");
+  const [honeypot, setHoneypot] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     if (paramPlan) {
       setSelectedPlan(normalizePlan(paramPlan));
     }
   }, [paramPlan]);
-  const [macAddress, setMacAddress] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
-  const [orderId, setOrderId] = useState("");
-  const [expirationDate, setExpirationDate] = useState("");
-  const [submitted, setSubmitted] = useState(false);
 
   const breadcrumbItems = [{ label: "Commander", href: "/commander/" }];
 
-  const plans = [
-    { id: "1-mois", name: "1 Mois", price: "€ 9,99", desc: "Sans engagement" },
-    { id: "3-mois", name: "3 Mois", price: "€ 19,99", desc: "6,66 € / mois" },
+  const plans: { id: PlanDuration; name: string; basePrice: number; price: string; desc: string }[] = [
+    { id: "1-mois", name: "1 Mois", basePrice: 9.99, price: "9,99 €", desc: "Sans engagement" },
+    { id: "3-mois", name: "3 Mois", basePrice: 19.99, price: "19,99 €", desc: "soit 6,66 € / mois" },
     {
       id: "6-mois",
       name: "6 Mois",
-      price: "€ 29,99",
-      desc: "5,00 € / mois - Choix Malin",
+      basePrice: 29.99,
+      price: "29,99 €",
+      desc: "soit 5,00 € / mois - Choix Malin",
     },
     {
       id: "12-mois",
       name: "12 Mois",
-      price: "€ 49,99",
-      desc: "4,16 € / mois - Recommandé",
+      basePrice: 49.99,
+      price: "49,99 €",
+      desc: "soit 4,16 € / mois - Recommandé",
     },
   ];
+
+  const currentTotal = calculateOrderAmount(selectedPlan, devicesCount);
 
   const handleOrder = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -87,25 +100,31 @@ function CommanderContent() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           planId: selectedPlan,
+          devicesCount,
           deviceType,
           name: name.trim() || "Client",
           email: email.trim(),
           phone: phone.trim(),
           macAddress: macAddress.trim(),
+          isRenewal,
+          existingCode: existingCode.trim(),
+          honeypot,
         }),
       });
 
       const data = (await res.json()) as {
         success?: boolean;
         orderId?: string;
-        expirationDate?: string;
         error?: string;
       };
 
-      if (res.ok && data.success) {
-        setOrderId(data.orderId || "");
-        setExpirationDate(data.expirationDate || "");
-        setSubmitted(true);
+      if (res.ok && data.success && data.orderId) {
+        // Instant redirect to dedicated /merci post-purchase confirmation page
+        router.push(
+          `/merci?orderId=${encodeURIComponent(data.orderId)}&plan=${encodeURIComponent(
+            selectedPlan
+          )}&devices=${devicesCount}`
+        );
       } else {
         setErrorMessage(
           data.error || "Une erreur est survenue lors de l'enregistrement."
@@ -134,241 +153,305 @@ function CommanderContent() {
             <div className="text-center mb-10">
               <span className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold text-white bg-[#0A1428] border border-[#1E7BFF]">
                 <Lock className="w-3.5 h-3.5 text-[#1E7BFF]" />
-                COMMANDE SÉCURISÉE & ACTIVATION RAPIDE
+                COMMANDE SÉCURISÉE & ACTIVATION EN MOINS DE 15 MIN
               </span>
               <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
                 Finaliser votre commande{" "}
-                <span className="gradient-text-blue">Atlas Pro</span>
+                <span className="text-gradient-primary">iboatlaspro</span>
               </h1>
-              <p className="mt-3 text-sm sm:text-base text-[#9FB0CC] max-w-lg mx-auto">
-                Votre demande est transmise en temps réel à nos équipes pour activation sous 15 minutes.
+              <p className="mt-3 text-sm sm:text-base text-[#9FB0CC] max-w-xl mx-auto">
+                Activation immédiate de votre flux IPTV 4K / FHD sans coupure.
+                Remplissez les informations ci-dessous pour lancer la préparation.
               </p>
             </div>
 
-            <div className="p-8 sm:p-10 rounded-2xl bg-[#0A1428] border border-[#1A2A4A] shadow-2xl">
-              {submitted ? (
-                <div className="text-center py-10 space-y-6">
-                  <div className="w-16 h-16 rounded-full bg-[#22C55E]/20 text-[#22C55E] flex items-center justify-center mx-auto">
-                    <CheckCircle2 className="w-10 h-10" />
+            <div className="bg-[#0A1428] border border-[#1A2A4A] rounded-2xl p-6 sm:p-10 shadow-2xl">
+              {errorMessage && (
+                <div className="mb-6 p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-sm">
+                  {errorMessage}
+                </div>
+              )}
+
+              <form onSubmit={handleOrder} className="space-y-8">
+                {/* Honeypot field (hidden from real users, traps spam bots) */}
+                <div className="hidden" aria-hidden="true">
+                  <input
+                    type="text"
+                    name="website_url_hp"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={honeypot}
+                    onChange={(e) => setHoneypot(e.target.value)}
+                  />
+                </div>
+
+                {/* Step 1: Plan Selection */}
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <h2 className="text-base font-bold text-white">
+                      1. Choisissez votre durée d&apos;abonnement
+                    </h2>
+                    <span className="text-xs text-[#1E7BFF] font-medium">
+                      Sans engagement
+                    </span>
                   </div>
-                  <h2 className="text-2xl font-bold text-white">
-                    Commande #{orderId} enregistrée !
-                  </h2>
-                  <div className="p-5 rounded-xl bg-[#060E1F] border border-[#1A2A4A] max-w-md mx-auto text-left text-xs sm:text-sm space-y-2">
-                    <div className="flex justify-between">
-                      <span className="text-[#9FB0CC]">Formule choisie :</span>
-                      <strong className="text-white">
-                        {plans.find((p) => p.id === selectedPlan)?.name}
-                      </strong>
-                    </div>
-                    {expirationDate && (
-                      <div className="flex justify-between">
-                        <span className="text-[#9FB0CC]">Date d&apos;échéance :</span>
-                        <strong className="text-[#22C55E]">
-                          {new Date(expirationDate).toLocaleDateString("fr-FR")}
-                        </strong>
-                      </div>
-                    )}
-                    <div className="flex justify-between">
-                      <span className="text-[#9FB0CC]">Statut :</span>
-                      <span className="text-[#1E7BFF] font-semibold">En cours d&apos;activation</span>
-                    </div>
-                  </div>
-                  <p className="text-sm text-[#9FB0CC] max-w-md mx-auto leading-relaxed">
-                    Merci {name || "cher client"}. L&apos;administrateur a reçu l&apos;alerte instantanée et traite votre compte. Vous pouvez accélérer votre mise en service par message direct.
-                  </p>
-                  <div className="pt-2">
-                    <a
-                      href={`${
-                        process.env.NEXT_PUBLIC_WHATSAPP_URL || "https://wa.me/212715214002"
-                      }?text=${encodeURIComponent(
-                        `Bonjour, je viens de valider la commande #${orderId} pour l'offre ${selectedPlan} (Email: ${email}). Merci d'activer mon compte.`
-                      )}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-base font-bold text-white bg-[#22C55E] hover:bg-[#1fa951] transition-all"
-                    >
-                      <FaWhatsapp className="w-5 h-5" />
-                      <span>Confirmer sur WhatsApp</span>
-                    </a>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                    {plans.map((p) => (
+                      <button
+                        key={p.id}
+                        type="button"
+                        onClick={() => setSelectedPlan(p.id)}
+                        className={`p-4 rounded-xl border text-left transition-all ${
+                          selectedPlan === p.id
+                            ? "border-[#1E7BFF] bg-[#1E7BFF]/10 shadow-[0_0_20px_rgba(30,123,255,0.2)]"
+                            : "border-[#1A2A4A] bg-[#060E1F] hover:border-[#1E7BFF]/50"
+                        }`}
+                      >
+                        <div className="text-sm font-bold text-white">
+                          {p.name}
+                        </div>
+                        <div className="text-lg font-extrabold text-[#1E7BFF] mt-1">
+                          {p.price}
+                        </div>
+                        <div className="text-[10px] text-[#9FB0CC] mt-0.5">
+                          {p.desc}
+                        </div>
+                      </button>
+                    ))}
                   </div>
                 </div>
-              ) : (
-                <form onSubmit={handleOrder} className="space-y-8">
-                  {errorMessage && (
-                    <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-xs sm:text-sm text-center">
-                      {errorMessage}
-                    </div>
-                  )}
 
-                  {/* Step 1: Select Plan */}
-                  <div>
-                    <h2 className="text-base font-bold text-white mb-3">
-                      1. Choisissez votre formule
+                {/* Step 2: Multi-Screen Option */}
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <h2 className="text-base font-bold text-white">
+                      2. Nombre d&apos;écrans simultanés (Multi-Connexions)
                     </h2>
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                      {plans.map((p) => (
-                        <button
-                          key={p.id}
-                          type="button"
-                          onClick={() => setSelectedPlan(p.id)}
-                          className={`p-4 rounded-xl text-left border transition-all ${
-                            selectedPlan === p.id
-                              ? "bg-[#1E7BFF]/15 border-[#1E7BFF] shadow-[0_0_15px_rgba(30,123,255,0.3)]"
-                              : "bg-[#060E1F] border-[#1A2A4A] hover:border-[#1E7BFF]/50"
-                          }`}
-                        >
-                          <div className="text-sm font-bold text-white">
-                            {p.name}
-                          </div>
-                          <div className="text-lg font-extrabold text-[#1E7BFF] mt-1">
-                            {p.price}
-                          </div>
-                          <div className="text-[10px] text-[#9FB0CC] mt-0.5">
-                            {p.desc}
-                          </div>
-                        </button>
-                      ))}
+                    <span className="text-xs text-[#22C55E] font-medium">
+                      Usage familial possible
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    {[
+                      { count: 1, label: "1 Écran Standard", tag: "Inclus dans l'offre", extra: "Pour 1 téléviseur ou smartphone" },
+                      { count: 2, label: "2 Écrans Simultanés", tag: "Pack Duo (+70%)", extra: "Regardez en même temps sur 2 écrans" },
+                      { count: 3, label: "3 Écrans Simultanés", tag: "Pack Famille (+130%)", extra: "Accès complet pour toute la maison" },
+                    ].map((opt) => (
+                      <button
+                        key={opt.count}
+                        type="button"
+                        onClick={() => setDevicesCount(opt.count)}
+                        className={`p-4 rounded-xl border text-left transition-all ${
+                          devicesCount === opt.count
+                            ? "border-[#22C55E] bg-[#22C55E]/10 shadow-[0_0_20px_rgba(34,197,94,0.15)]"
+                            : "border-[#1A2A4A] bg-[#060E1F] hover:border-[#22C55E]/40"
+                        }`}
+                      >
+                        <div className="flex items-center justify-between">
+                          <span className="text-sm font-bold text-white">{opt.label}</span>
+                          {devicesCount === opt.count && (
+                            <Check className="w-4 h-4 text-[#22C55E]" />
+                          )}
+                        </div>
+                        <div className="text-xs font-semibold text-[#22C55E] mt-1">
+                          {opt.tag}
+                        </div>
+                        <div className="text-[11px] text-[#9FB0CC] mt-0.5">
+                          {opt.extra}
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Step 3: Equipment & Renewal */}
+                <div>
+                  <h2 className="text-base font-bold text-white mb-3">
+                    3. Votre équipement & Type de commande
+                  </h2>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label
+                        htmlFor="device-choice"
+                        className="block text-xs text-[#9FB0CC] mb-1.5"
+                      >
+                        Modèle d&apos;appareil principal
+                      </label>
+                      <select
+                        id="device-choice"
+                        value={deviceType}
+                        onChange={(e) => setDeviceType(e.target.value)}
+                        className="w-full px-4 py-3 rounded-xl bg-[#060E1F] border border-[#1A2A4A] text-white text-sm focus:outline-none focus:border-[#1E7BFF]"
+                      >
+                        <option value="smart-tv">Smart TV (Samsung / LG / Sony / Philips)</option>
+                        <option value="fire-tv">Amazon Fire TV Stick</option>
+                        <option value="android-box">Box Android / Google TV / Nvidia Shield</option>
+                        <option value="apple-tv">Apple TV / iPhone / iPad</option>
+                        <option value="mag">Boîtier MAG (250/254/322...)</option>
+                        <option value="pc">Ordinateur Windows / macOS</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label
+                        htmlFor="mac-choice"
+                        className="block text-xs text-[#9FB0CC] mb-1.5"
+                      >
+                        Adresse MAC (Optionnel pour MAG / Smart TV)
+                      </label>
+                      <input
+                        id="mac-choice"
+                        type="text"
+                        placeholder="Ex: 00:1a:79:xx:xx:xx"
+                        value={macAddress}
+                        onChange={(e) => setMacAddress(e.target.value)}
+                        className="w-full px-4 py-3 rounded-xl bg-[#060E1F] border border-[#1A2A4A] text-white text-sm font-mono placeholder-[#9FB0CC]/40 focus:outline-none focus:border-[#1E7BFF]"
+                      />
                     </div>
                   </div>
 
-                  {/* Step 2: Device Type */}
-                  <div>
-                    <h2 className="text-base font-bold text-white mb-3">
-                      2. Votre équipement principal
-                    </h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label
-                          htmlFor="device-choice"
-                          className="block text-xs text-[#9FB0CC] mb-1.5"
-                        >
-                          Modèle d&apos;appareil
-                        </label>
-                        <select
-                          id="device-choice"
-                          value={deviceType}
-                          onChange={(e) => setDeviceType(e.target.value)}
-                          className="w-full px-4 py-3 rounded-xl bg-[#060E1F] border border-[#1A2A4A] text-white text-sm focus:outline-none focus:border-[#1E7BFF]"
-                        >
-                          <option value="smart-tv">Smart TV (Samsung / LG / Sony)</option>
-                          <option value="fire-tv">Amazon Fire TV Stick</option>
-                          <option value="android-box">Box Android / Google TV</option>
-                          <option value="apple-tv">Apple TV / iPhone / iPad</option>
-                          <option value="mag">Boîtier MAG</option>
-                          <option value="pc">Windows / Mac</option>
-                        </select>
-                      </div>
-
-                      <div>
-                        <label
-                          htmlFor="mac-choice"
-                          className="block text-xs text-[#9FB0CC] mb-1.5"
-                        >
-                          Adresse MAC (Optionnel pour MAG / Smart TV)
-                        </label>
-                        <input
-                          id="mac-choice"
-                          type="text"
-                          placeholder="Ex: 00:1a:79:..."
-                          value={macAddress}
-                          onChange={(e) => setMacAddress(e.target.value)}
-                          className="w-full px-4 py-3 rounded-xl bg-[#060E1F] border border-[#1A2A4A] text-white text-sm font-mono placeholder-[#9FB0CC]/40 focus:outline-none focus:border-[#1E7BFF]"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Step 3: Contact Info */}
-                  <div>
-                    <h2 className="text-base font-bold text-white mb-3">
-                      3. Coordonnées de livraison
-                    </h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                      <div>
-                        <label
-                          htmlFor="name-choice"
-                          className="block text-xs text-[#9FB0CC] mb-1.5"
-                        >
-                          Nom complet
-                        </label>
-                        <input
-                          id="name-choice"
-                          type="text"
-                          required
-                          placeholder="Votre nom"
-                          value={name}
-                          onChange={(e) => setName(e.target.value)}
-                          className="w-full px-4 py-3 rounded-xl bg-[#060E1F] border border-[#1A2A4A] text-white text-sm focus:outline-none focus:border-[#1E7BFF]"
-                        />
-                      </div>
-
-                      <div>
-                        <label
-                          htmlFor="email-choice"
-                          className="block text-xs text-[#9FB0CC] mb-1.5"
-                        >
-                          Adresse e-mail
-                        </label>
-                        <input
-                          id="email-choice"
-                          type="email"
-                          required
-                          placeholder="nom@exemple.com"
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
-                          className="w-full px-4 py-3 rounded-xl bg-[#060E1F] border border-[#1A2A4A] text-white text-sm focus:outline-none focus:border-[#1E7BFF]"
-                        />
-                      </div>
-
-                      <div>
-                        <label
-                          htmlFor="phone-choice"
-                          className="block text-xs text-[#9FB0CC] mb-1.5"
-                        >
-                          Numéro WhatsApp
-                        </label>
-                        <input
-                          id="phone-choice"
-                          type="tel"
-                          required
-                          placeholder="+33 6 12 34 56 78"
-                          value={phone}
-                          onChange={(e) => setPhone(e.target.value)}
-                          className="w-full px-4 py-3 rounded-xl bg-[#060E1F] border border-[#1A2A4A] text-white text-sm focus:outline-none focus:border-[#1E7BFF]"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Submit Button */}
-                  <div className="pt-4">
-                    <button
-                      type="submit"
-                      disabled={loading}
-                      className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-base font-bold text-white bg-[#1E7BFF] hover:bg-[#2D9CFF] disabled:opacity-50 disabled:cursor-not-allowed glow-primary transition-all duration-200"
-                    >
-                      <Lock className="w-4 h-4" />
-                      <span>
-                        {loading
-                          ? "Transmission de votre commande..."
-                          : `Valider ma commande (${plans.find((p) => p.id === selectedPlan)?.price})`}
+                  {/* Renewal toggle */}
+                  <div className="mt-4 p-4 rounded-xl bg-[#060E1F] border border-[#1A2A4A]">
+                    <label className="flex items-center gap-3 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={isRenewal}
+                        onChange={(e) => setIsRenewal(e.target.checked)}
+                        className="w-4 h-4 rounded border-[#1A2A4A] text-[#1E7BFF] focus:ring-0 cursor-pointer"
+                      />
+                      <span className="text-sm font-medium text-white flex items-center gap-2">
+                        <RefreshCw className="w-4 h-4 text-[#1E7BFF]" />
+                        Il s&apos;agit d&apos;un renouvellement (j&apos;ai déjà un code d&apos;accès ou identifiant)
                       </span>
-                    </button>
+                    </label>
+
+                    {isRenewal && (
+                      <div className="mt-3 pt-3 border-t border-[#1A2A4A]">
+                        <label
+                          htmlFor="existing-code"
+                          className="block text-xs text-[#9FB0CC] mb-1.5"
+                        >
+                          Code d&apos;accès ou numéro d&apos;abonnement à renouveler
+                        </label>
+                        <input
+                          id="existing-code"
+                          type="text"
+                          placeholder="Ex: AP-784912 ou votre nom d'utilisateur"
+                          value={existingCode}
+                          onChange={(e) => setExistingCode(e.target.value)}
+                          className="w-full px-4 py-2.5 rounded-lg bg-[#040A17] border border-[#1A2A4A] text-white text-sm font-mono placeholder-[#9FB0CC]/40 focus:outline-none focus:border-[#1E7BFF]"
+                        />
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                {/* Step 4: Contact Info */}
+                <div>
+                  <h2 className="text-base font-bold text-white mb-3">
+                    4. Coordonnées de contact pour l&apos;activation
+                  </h2>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div>
+                      <label
+                        htmlFor="name-choice"
+                        className="block text-xs text-[#9FB0CC] mb-1.5"
+                      >
+                        Nom complet
+                      </label>
+                      <input
+                        id="name-choice"
+                        type="text"
+                        required
+                        placeholder="Votre nom"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        className="w-full px-4 py-3 rounded-xl bg-[#060E1F] border border-[#1A2A4A] text-white text-sm focus:outline-none focus:border-[#1E7BFF]"
+                      />
+                    </div>
+
+                    <div>
+                      <label
+                        htmlFor="email-choice"
+                        className="block text-xs text-[#9FB0CC] mb-1.5"
+                      >
+                        Adresse e-mail
+                      </label>
+                      <input
+                        id="email-choice"
+                        type="email"
+                        required
+                        placeholder="nom@exemple.com"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="w-full px-4 py-3 rounded-xl bg-[#060E1F] border border-[#1A2A4A] text-white text-sm focus:outline-none focus:border-[#1E7BFF]"
+                      />
+                    </div>
+
+                    <div>
+                      <label
+                        htmlFor="phone-choice"
+                        className="block text-xs text-[#9FB0CC] mb-1.5"
+                      >
+                        Numéro WhatsApp (recommandé pour activation)
+                      </label>
+                      <input
+                        id="phone-choice"
+                        type="tel"
+                        required
+                        placeholder="+33 6 12 34 56 78"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                        className="w-full px-4 py-3 rounded-xl bg-[#060E1F] border border-[#1A2A4A] text-white text-sm focus:outline-none focus:border-[#1E7BFF]"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Submit & Price Summary */}
+                <div className="pt-4 border-t border-[#1A2A4A]">
+                  <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-4">
+                    <div>
+                      <div className="text-xs text-[#9FB0CC]">Total à régler pour l&apos;activation :</div>
+                      <div className="text-2xl sm:text-3xl font-extrabold text-[#1E7BFF]">
+                        {currentTotal.toFixed(2)} €
+                        <span className="text-xs font-normal text-[#9FB0CC] ml-2">
+                          ({plans.find((p) => p.id === selectedPlan)?.name} - {devicesCount} {devicesCount > 1 ? "écrans" : "écran"})
+                        </span>
+                      </div>
+                    </div>
                   </div>
 
-                  <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-[#9FB0CC] pt-2">
-                    <span className="flex items-center gap-1.5">
-                      <Zap className="w-3.5 h-3.5 text-[#1E7BFF]" />
-                      Livraison en moins de 15 min
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-base font-bold text-white bg-[#1E7BFF] hover:bg-[#2D9CFF] disabled:opacity-50 disabled:cursor-not-allowed glow-primary transition-all duration-200"
+                  >
+                    <Lock className="w-4 h-4" />
+                    <span>
+                      {loading
+                        ? "Enregistrement de votre commande..."
+                        : `Valider ma commande (${currentTotal.toFixed(2)} €)`}
                     </span>
-                    <span className="flex items-center gap-1.5">
-                      <ShieldCheck className="w-3.5 h-3.5 text-[#22C55E]" />
-                      Garantie de remboursement sous 24h
-                    </span>
-                  </div>
-                </form>
-              )}
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
+
+                <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-[#9FB0CC] pt-2">
+                  <span className="flex items-center gap-1.5">
+                    <Zap className="w-3.5 h-3.5 text-[#1E7BFF]" />
+                    Activation en moins de 15 minutes
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <ShieldCheck className="w-3.5 h-3.5 text-[#22C55E]" />
+                    Garantie de remboursement sous 24h
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <Tv className="w-3.5 h-3.5 text-[#1E7BFF]" />
+                    Flux 4K UHD & FHD sans buffering
+                  </span>
+                </div>
+              </form>
             </div>
           </div>
         </section>

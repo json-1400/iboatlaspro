@@ -7,7 +7,8 @@ import { PricingSection } from "@/components/PricingSection";
 import { DevicesGrid } from "@/components/DevicesGrid";
 import { VodCarousel } from "@/components/VodCarousel";
 import { StickyCTA } from "@/components/StickyCTA";
-import { Shield, Zap, Tv, Headphones, Award } from "lucide-react";
+import Link from "next/link";
+import { Shield, Zap, Tv, Headphones, Award, ArrowRight } from "lucide-react";
 
 export function generateMetadata(): Metadata {
   return {
@@ -49,6 +50,30 @@ export default function AtlasProHubPage() {
 
         {/* Pricing Offers */}
         <PricingSection />
+
+        {/* Multi-Screens Contextual Bridge */}
+        <section className="py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="p-6 sm:p-8 rounded-2xl bg-[#0A1428] border border-[#1A2A4A] hover:border-[#1E7BFF]/50 transition-all flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div className="space-y-1 text-center sm:text-left">
+              <span className="text-xs font-bold text-[#22C55E] uppercase tracking-wider">
+                NOUVEAUTÉ : PACK MULTI-CONNEXIONS
+              </span>
+              <h3 className="text-lg sm:text-xl font-bold text-white">
+                Besoin d&apos;utiliser votre abonnement sur 2 ou 3 téléviseurs en même temps ?
+              </h3>
+              <p className="text-xs sm:text-sm text-[#9FB0CC]">
+                Découvrez nos formules multi-écrans sans coupure ni blocage d&apos;adresse IP.
+              </p>
+            </div>
+            <Link
+              href="/abonnement-atlas-pro/multi-ecrans/"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs sm:text-sm font-bold text-white bg-[#1E7BFF] hover:bg-[#2D9CFF] glow-primary transition-all flex-shrink-0"
+            >
+              <span>Découvrir les offres Multi-Écrans</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </section>
 
         {/* Content & Entity Topical Depth */}
         <section className="py-16 bg-[#060E1F]/60 border-t border-b border-[#1A2A4A]/50">

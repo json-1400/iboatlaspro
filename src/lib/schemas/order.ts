@@ -10,6 +10,10 @@ export const OrderSchema = z.object({
   phone: z.string().min(6, "Veuillez saisir un numéro de téléphone valide"),
   macAddress: z.string().optional().default(""),
   notes: z.string().optional().default(""),
+  devicesCount: z.coerce.number().int().min(1).max(3).optional().default(1),
+  isRenewal: z.boolean().optional().default(false),
+  existingCode: z.string().optional().default(""),
+  honeypot: z.string().optional().default(""),
 });
 
 export type OrderInput = z.infer<typeof OrderSchema>;
