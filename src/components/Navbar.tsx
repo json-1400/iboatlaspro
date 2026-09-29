@@ -56,8 +56,8 @@ const NAV_MENU: readonly NavSection[] = [
         badge: "39,99 €",
       },
       {
-        title: "Multi-Écrans (2 à 3 TV)",
-        desc: "Diffusion simultanée salon & chambre",
+        title: "Multi-Écrans (2 à 4 TV)",
+        desc: "Diffusion simultanée salon & chambres",
         href: "/abonnement-atlas-pro/multi-ecrans/",
         icon: Globe,
         badge: "+20 €",

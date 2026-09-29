@@ -19,9 +19,9 @@ import {
 
 export function generateMetadata(): Metadata {
   return constructMetadata({
-    title: "Abonnement IPTV Multi-Écrans | 2 à 3 Connexions 4K Simultanées",
+    title: "Abonnement IPTV Multi-Écrans | 2 à 4 Connexions 4K Simultanées",
     description:
-      "Profitez de votre abonnement IPTV sur 2 ou 3 téléviseurs en même temps sans coupure. Flux 4K indépendants pour salon, chambre et mobile.",
+      "Profitez de votre abonnement IPTV sur 2, 3 ou 4 téléviseurs en même temps sans coupure. Flux 4K indépendants pour salon, chambres et mobile.",
     path: "/abonnement-atlas-pro/multi-ecrans/",
   });
 }
@@ -33,22 +33,6 @@ export default function MultiEcransPage() {
   ];
 
   const plans = [
-    {
-      name: "Pack Solo (1 Écran)",
-      price: "39,99 €",
-      period: "12 Mois",
-      desc: "Idéal pour un téléviseur principal",
-      devices: "1 Connexion",
-      ctaHref: "/commander/?plan=12-mois&devices=1",
-      ctaText: "Choisir 1 Écran",
-      features: [
-        "1 Téléviseur ou appareil à la fois",
-        "Toutes les chaînes directes & VOD",
-        "Qualité 4K / FHD sans buffering",
-        "Support technique 24/7",
-      ],
-      highlight: false,
-    },
     {
       name: "Pack Duo (2 Écrans)",
       price: "59,99 €",
@@ -64,8 +48,7 @@ export default function MultiEcransPage() {
         "Compatible Smart TV + Fire Stick / Box",
         "Support prioritaire WhatsApp",
       ],
-      highlight: true,
-      badge: "LE PLUS CHOISI",
+      highlight: false,
     },
     {
       name: "Pack Famille (3 Écrans)",
@@ -82,6 +65,24 @@ export default function MultiEcransPage() {
         "Activation prioritaire en 15 minutes",
         "Support technique dédié",
       ],
+      highlight: true,
+      badge: "LE PLUS CHOISI",
+    },
+    {
+      name: "Pack Maxi (4 Écrans)",
+      price: "99,99 €",
+      period: "12 Mois",
+      desc: "Grands foyers, colocations & 4 pièces (+60 €)",
+      devices: "4 Connexions Actives",
+      ctaHref: "/commander/?plan=12-mois&devices=4",
+      ctaText: "Commander Pack Maxi (99,99 €)",
+      features: [
+        "4 Flux 4K simultanés et indépendants",
+        "Accès complet pour 4 TV ou appareils à la fois",
+        "Aucune baisse de débit ni saturation serveur",
+        "Activation prioritaire instantanée",
+        "Support technique VIP 24/7",
+      ],
       highlight: false,
     },
   ];
@@ -93,7 +94,7 @@ export default function MultiEcransPage() {
     },
     {
       q: "Pourquoi un abonnement IPTV standard coupe-t-il sur 2 téléviseurs ?",
-      a: "Sur un abonnement IPTV classique mono-écran, le serveur verrouille la ligne dès qu'un second appareil se connecte. Cela provoque immédiatement un écran noir ou une erreur 'Code expiré / Limite atteinte'. Notre pack multi-écrans autorise explicitement 2 à 3 sessions parallèles sans aucun risque de déconnexion.",
+      a: "Sur un abonnement IPTV classique mono-écran, le serveur verrouille la ligne dès qu'un second appareil se connecte. Cela provoque immédiatement un écran noir ou une erreur 'Code expiré / Limite atteinte'. Notre pack multi-écrans autorise explicitement 2 à 4 sessions parallèles sans aucun risque de déconnexion.",
     },
     {
       q: "Puis-je utiliser le multi-écrans sur deux adresses internet différentes ?",
@@ -112,12 +113,12 @@ export default function MultiEcransPage() {
         "@type": "Product",
         name: "Abonnement IPTV Multi-Écrans iboatlaspro",
         description:
-          "Formule multi-connexions pour 2 à 3 téléviseurs simultanés en qualité 4K sans coupure.",
+          "Formule multi-connexions pour 2 à 4 téléviseurs simultanés en qualité 4K sans coupure.",
         offers: {
           "@type": "AggregateOffer",
           priceCurrency: "EUR",
-          lowPrice: "39.99",
-          highPrice: "79.99",
+          lowPrice: "59.99",
+          highPrice: "99.99",
           offerCount: "3",
         },
       },
@@ -152,8 +153,8 @@ export default function MultiEcransPage() {
         <SiloHeader
           badge="SOLUTION MULTI-CONNEXIONS FAMILIALE"
           titlePrefix="Abonnement IPTV"
-          titleGradient="Multi-Écrans (2 à 3 TV)"
-          description="Fini les disputes de télécommande. Regardez vos chaînes en direct et films en 4K sur 2 ou 3 téléviseurs simultanément sans coupure ni blocage serveur."
+          titleGradient="Multi-Écrans (2 à 4 TV)"
+          description="Fini les disputes de télécommande. Regardez vos chaînes en direct et films en 4K sur 2, 3 ou 4 téléviseurs simultanément sans coupure ni blocage serveur."
           primaryCtaText="Voir les offres Multi-Écrans"
           primaryCtaHref="#tarifs-multi"
           secondaryCtaText="Tester l'offre 12 Mois"
@@ -177,7 +178,7 @@ export default function MultiEcransPage() {
               </p>
               <p className="mt-3 text-sm sm:text-base text-[#9FB0CC] leading-relaxed">
                 L&apos;infrastructure <strong>iboatlaspro Multi-Écrans</strong> alloue
-                une bande passante dédiée à chaque terminal. Vos deux ou trois
+                une bande passante dédiée à chaque terminal. Vos deux, trois ou quatre
                 écrans bénéficient d&apos;un flux 4K 60fps distinct, géré par des
                 serveurs à équilibrage de charge dynamique.
               </p>

@@ -42,11 +42,15 @@ function CommanderContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const paramPlan = searchParams.get("plan");
+  const paramDevices = searchParams.get("devices");
 
   const [selectedPlan, setSelectedPlan] = useState<PlanDuration>(() =>
     normalizePlan(paramPlan)
   );
-  const [devicesCount, setDevicesCount] = useState<number>(1);
+  const [devicesCount, setDevicesCount] = useState<number>(() => {
+    const parsed = Number(paramDevices);
+    return parsed >= 1 && parsed <= 4 ? parsed : 1;
+  });
   const [deviceType, setDeviceType] = useState("smart-tv");
   const [isRenewal, setIsRenewal] = useState<boolean>(false);
   const [existingCode, setExistingCode] = useState<string>("");
@@ -62,7 +66,13 @@ function CommanderContent() {
     if (paramPlan) {
       setSelectedPlan(normalizePlan(paramPlan));
     }
-  }, [paramPlan]);
+    if (paramDevices) {
+      const parsed = Number(paramDevices);
+      if (parsed >= 1 && parsed <= 4) {
+        setDevicesCount(parsed);
+      }
+    }
+  }, [paramPlan, paramDevices]);
 
   const breadcrumbItems = [{ label: "Commander", href: "/commander/" }];
 
@@ -230,11 +240,12 @@ function CommanderContent() {
                       +20 € par écran supplémentaire
                     </span>
                   </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                     {[
                       { count: 1, label: "1 Écran Standard", tag: "Inclus dans l'offre", extra: "Pour 1 téléviseur ou smartphone" },
                       { count: 2, label: "2 Écrans Simultanés", tag: "+20,00 € seulement", extra: "Regardez en même temps sur 2 écrans" },
                       { count: 3, label: "3 Écrans Simultanés", tag: "+40,00 € seulement", extra: "Accès complet pour toute la maison" },
+                      { count: 4, label: "4 Écrans Simultanés", tag: "+60,00 € seulement", extra: "Idéal grands foyers & 4 TV simultanées" },
                     ].map((opt) => (
                       <button
                         key={opt.count}

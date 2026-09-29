@@ -59,7 +59,7 @@ export default function AtlasProHubPage() {
                 NOUVEAUTÉ : PACK MULTI-CONNEXIONS
               </span>
               <h3 className="text-lg sm:text-xl font-bold text-white">
-                Besoin d&apos;utiliser votre abonnement sur 2 ou 3 téléviseurs en même temps ?
+                Besoin d&apos;utiliser votre abonnement sur 2, 3 ou 4 téléviseurs en même temps ?
               </h3>
               <p className="text-xs sm:text-sm text-[#9FB0CC]">
                 Découvrez nos formules multi-écrans sans coupure ni blocage d&apos;adresse IP.
