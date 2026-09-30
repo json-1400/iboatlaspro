@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180" fill="none">
+  <defs>
+    <linearGradient id="apple-bg" x1="0" y1="180" x2="180" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#082554"/>
+      <stop offset="50%" stop-color="#1262E3"/>
+      <stop offset="100%" stop-color="#00D2FF"/>
+    </linearGradient>
+    <linearGradient id="apple-orbit" x1="20" y1="160" x2="160" y2="20" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#00D2FF" stop-opacity="0.2"/>
+      <stop offset="50%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#00D2FF"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="180" height="180" rx="42" fill="url(#apple-bg)"/>
+
+  <!-- Atlas Planetary Orbit Ring (Back Arc) -->
+  <path d="M39 76C45 53 67 39 95 42C121 45 139 59 146 76" stroke="url(#apple-orbit)" stroke-width="8.5" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- Center Play / Streaming Triangle -->
+  <path d="M70 56C70 51.5 75 48.8 79 51.2L125 82.5C128.5 84.8 128.5 90.2 125 92.5L79 123.8C75 126.2 70 123.5 70 119V56Z" fill="#FFFFFF"/>
+
+  <!-- Atlas Planetary Orbit Ring (Front Arc) -->
+  <path d="M31 101C38 125 62 141 90 138C115 135 135 123 143 101" stroke="url(#apple-orbit)" stroke-width="9.5" stroke-linecap="round"/>
+
+  <!-- Orbit Node Pulse -->
+  <circle cx="143" cy="101" r="7.5" fill="#FFFFFF"/>
+</svg>

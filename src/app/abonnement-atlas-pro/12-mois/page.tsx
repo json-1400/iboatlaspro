@@ -8,14 +8,47 @@ import { Check, ShieldCheck, Zap, Star, ArrowRight } from "lucide-react";
 
 export function generateMetadata(): Metadata {
   return {
-    title: "Abonnement IPTV 12 Mois Pas Cher : Atlas Pro 4K Sans Coupure",
+    title: "Abonnement IPTV 12 Mois Pas Cher 2026 : Atlas Pro 4K à 39,99 €",
     description:
-      "Abonnement IPTV 12 mois au meilleur prix : seulement 39,99 € (soit 3,33 €/mois). Accès à toutes les chaînes et VOD 4K/FHD avec serveurs stables. Activation sous 15 min.",
+      "Abonnement IPTV 12 mois Atlas Pro officiel à 39,99 € (3,33 €/mois). +10 000 chaînes 4K/FHD, VOD illimitée, serveurs stables 99.9 %. Activation en 15 min. Meilleur prix garanti.",
+    keywords:
+      "abonnement iptv 12 mois, iptv 12 mois pas cher, atlas pro 12 mois, abonnement iptv 1 an, iptv 1 ans, code iptv 12 mois, abonnement iptv 12 mois smart tv",
     alternates: {
       canonical: "https://iboatlaspro.com/abonnement-atlas-pro/12-mois/",
     },
   };
 }
+
+const moisFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Quel est le meilleur abonnement IPTV 12 mois pas cher en 2026 ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "L'abonnement Atlas Pro 12 mois à 39,99 € sur iboatlaspro.com est le meilleur rapport qualité-prix du marché : soit seulement 3,33 € par mois pour +10 000 chaînes 4K, VOD illimitée et serveurs stables 99.9 %.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Comment activer un abonnement IPTV 12 mois sur Atlas Pro ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Après commande sur iboatlaspro.com, vous recevez votre code Atlas Pro par e-mail et WhatsApp en moins de 15 minutes. Entrez ce code dans l'application Atlas Pro ONTV ou Atlas Pro IBO pour activer votre abonnement 12 mois.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "L'abonnement IPTV 12 mois est-il compatible Smart TV ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Oui. L'abonnement IPTV 12 mois Atlas Pro est compatible avec Smart TV Samsung, LG, Android TV, Fire Stick, iPhone, iPad, PC et MAG. Une seule activation par appareil.",
+      },
+    },
+  ],
+};
 
 export default function AtlasPro12MoisPage() {
   const breadcrumbItems = [
@@ -36,6 +69,10 @@ export default function AtlasPro12MoisPage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#040A17] text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(moisFaqSchema) }}
+      />
       <Navbar />
 
       <main className="flex-1">

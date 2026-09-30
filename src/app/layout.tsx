@@ -36,6 +36,15 @@ export const metadata: Metadata = {
     description:
       "Abonnement IPTV stable sans coupure, compatible avec Smart TV, Android, Apple, PC.",
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
 };
 
 const jsonLdGraph = {
@@ -47,6 +56,10 @@ const jsonLdGraph = {
       name: "iboatlaspro",
       url: "https://iboatlaspro.com",
       logo: "https://iboatlaspro.com/images/hero-devices.jpg",
+      areaServed: {
+        "@type": "Country",
+        name: "France",
+      },
       contactPoint: {
         "@type": "ContactPoint",
         contactType: "customer service",

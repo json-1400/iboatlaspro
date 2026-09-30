@@ -12,14 +12,55 @@ import { Shield, Zap, Tv, Headphones, Award, ArrowRight } from "lucide-react";
 
 export function generateMetadata(): Metadata {
   return {
-    title: "Abonnement Atlas Pro Officiel : IPTV 4K Sans Coupure & Stable",
+    title: "Abonnement Atlas Pro : Prix, Formules & Offres Officielles 2026",
     description:
-      "Commandez votre abonnement Atlas Pro officiel. Accédez à +10 000 chaînes en direct et VOD 4K/FHD sans coupure. Activation immédiate, compatible Smart TV, Android, MAG.",
+      "Découvrez toutes les formules abonnement Atlas Pro : 1 mois, 12 mois, multi-écrans. Serveurs stables 99.9 %, +10 000 chaînes 4K/FHD, activation en 15 min. Comparez les prix Atlas Pro.",
+    keywords:
+      "abonnement atlas pro, atlas pro prix, atlas pro abonnement, atlas pro iptv abonnement, abonnement atlas pro ontv",
     alternates: {
       canonical: "https://iboatlaspro.com/abonnement-atlas-pro/",
     },
   };
 }
+
+const hubFaqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Quel est le prix de l'abonnement Atlas Pro ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "L'abonnement Atlas Pro est disponible à partir de 39,99 € pour 12 mois (soit 3,33 €/mois). Des formules 1 mois et multi-écrans sont également disponibles sur iboatlaspro.com.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Comment commander un abonnement Atlas Pro officiel ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Commandez directement sur iboatlaspro.com : choisissez votre formule, payez en ligne et recevez votre code d'activation par e-mail et WhatsApp en moins de 15 minutes.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Atlas Pro est-il compatible avec tous les appareils ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Oui. Atlas Pro est compatible avec Smart TV Samsung et LG, Android TV, Amazon Fire Stick, iPhone, iPad, PC Windows, Mac, boîtiers MAG et Chromecast.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Quelle est la différence entre Atlas Pro ONTV et Atlas Pro IBO ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Atlas Pro ONTV est l'application principale recommandée pour Android TV et Fire Stick. Atlas Pro IBO est optimisée pour les Smart TV Samsung et LG. Les deux fonctionnent avec le même code d'abonnement Atlas Pro.",
+      },
+    },
+  ],
+};
 
 export default function AtlasProHubPage() {
   const breadcrumbItems = [
@@ -28,6 +69,10 @@ export default function AtlasProHubPage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[#040A17] text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(hubFaqSchema) }}
+      />
       <Navbar />
 
       <main className="flex-1">

@@ -64,3 +64,27 @@ create policy "Service role manages orders" on public.orders
 
 create policy "Service role manages tickets" on public.tickets
   for all using (auth.role() = 'service_role');
+
+-- =====================================================================
+-- 6. Page Metadata Table (Dynamic Sitemap lastmod)
+-- See: supabase/migrations/001_page_metadata.sql for full migration
+-- =====================================================================
+
+create table if not exists public.page_metadata (
+  path          text primary key,
+  last_modified timestamptz not null default now(),
+  change_freq   text not null default 'weekly'
+                check (change_freq in ('always','hourly','daily','weekly','monthly','yearly','never')),
+  priority      numeric(3,2) not null default 0.8
+                check (priority >= 0.0 and priority <= 1.0),
+  notes         text
+);
+
+-- Auto-touch last_modified on any update (trigger defined in migration 001)
+alter table public.page_metadata enable row level security;
+
+create policy "Public read page_metadata" on public.page_metadata
+  for select using (true);
+
+create policy "Service role manages page_metadata" on public.page_metadata
+  for all using (auth.role() = 'service_role');

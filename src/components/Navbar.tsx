@@ -63,18 +63,6 @@ const NAV_MENU: readonly NavSection[] = [
         badge: "+20 €",
       },
       {
-        title: "IBO Player Pro",
-        desc: "Licence officielle & activation Smart TV",
-        href: "/abonnement-ibo-player/",
-        icon: Tv,
-      },
-      {
-        title: "IPTV Smarters Pro",
-        desc: "Identifiants Xtream Codes optimisés",
-        href: "/abonnement-iptv-smarters-pro/",
-        icon: Smartphone,
-      },
-      {
         title: "Essai Gratuit 24h",
         desc: "Testez nos serveurs sans engagement",
         href: "/abonnement-atlas-pro/essai-gratuit/",

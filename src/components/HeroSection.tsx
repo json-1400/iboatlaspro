@@ -28,18 +28,18 @@ export function HeroSection() {
 
             {/* H1 Heading */}
             <h1 className="text-4xl sm:text-5xl lg:text-[62px] font-extrabold tracking-tight text-white leading-[1.08]">
-              Votre monde de{" "}
+              Atlas Pro France :{" "}
               <span className="gradient-text-blue block sm:inline">
-                divertissement
+                Abonnement IPTV 4K
               </span>{" "}
-              sans limites
+              sans coupure
             </h1>
 
             {/* Subtitle / Paragraph */}
             <p className="text-base sm:text-lg text-[#9FB0CC] leading-relaxed max-w-xl font-normal">
-              Profitez de milliers de chaînes TV, de films et de séries en qualité
-              4K / FHD, sans coupure et sur tous vos appareils. Activation
-              instantanée et support 24/7.
+              Profitez d&apos;Atlas Pro en France : des milliers de chaînes TV en
+              direct, films et séries en qualité 4K / FHD, sans coupure et sur
+              tous vos appareils. Activation instantanée en 15 minutes et support 24/7.
             </p>
 
             {/* Row of 4 Features */}

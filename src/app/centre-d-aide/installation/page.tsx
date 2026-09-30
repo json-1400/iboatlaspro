@@ -5,13 +5,15 @@ import { Footer } from "@/components/Footer";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SiloHeader } from "@/components/SiloHeader";
 import { StickyCTA } from "@/components/StickyCTA";
-import { Tv, Box, ArrowRight, Smartphone, Monitor } from "lucide-react";
+import { Tv, Box, ArrowRight, Smartphone, Monitor, Cast, Laptop } from "lucide-react";
 
 export function generateMetadata(): Metadata {
   return {
-    title: "Guides d'Installation IPTV : Smart TV, Fire Stick, Android TV & MAG",
+    title: "Guides d'Installation IPTV : Smart TV, Fire Stick, iPhone, PC & Android",
     description:
-      "Toutes les instructions pour installer et configurer votre abonnement IPTV sur Smart TV Samsung/LG, Amazon Fire TV Stick, Box Android et MAG Box.",
+      "Toutes les instructions pour installer et configurer Atlas Pro et IPTV sur Smart TV Samsung/LG, Fire TV Stick, iPhone, iPad, Chromecast, PC Windows, Mac et Box Android.",
+    keywords:
+      "installation atlas pro, installer atlas pro, configuration iptv, atlas pro smart tv, atlas pro fire stick, atlas pro iphone, atlas pro pc windows, atlas pro chromecast",
     alternates: {
       canonical: "https://iboatlaspro.com/centre-d-aide/installation/",
     },
@@ -39,9 +41,27 @@ export default function InstallationHubPage() {
     },
     {
       title: "Box Android & Google TV",
-      desc: "Configuration sur Xiaomi Mi Box, Nvidia Shield, Chromecast avec Google TV et smartphones.",
+      desc: "Configuration sur Xiaomi Mi Box, Nvidia Shield, Smart TV Android et smartphones.",
       href: "/centre-d-aide/installation/android-tv/",
       icon: Smartphone,
+    },
+    {
+      title: "iPhone & iPad (iOS)",
+      desc: "Installation d'Atlas Pro et Smarters Pro sur iOS via l'App Store Apple. Configuration en 5 minutes.",
+      href: "/centre-d-aide/installation/iphone-ios/",
+      icon: Smartphone,
+    },
+    {
+      title: "Google Chromecast",
+      desc: "Diffusion et installation d'Atlas Pro sur Chromecast et Chromecast avec Google TV en 4K.",
+      href: "/centre-d-aide/installation/chromecast/",
+      icon: Cast,
+    },
+    {
+      title: "PC Windows & Mac",
+      desc: "Regardez vos chaînes sur ordinateur avec IPTV Smarters Pro, VLC ou un émulateur Android.",
+      href: "/centre-d-aide/installation/pc-windows/",
+      icon: Laptop,
     },
     {
       title: "Boîtiers MAG (254, 322, 520)",

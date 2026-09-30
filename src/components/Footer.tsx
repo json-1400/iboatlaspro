@@ -96,18 +96,18 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/abonnement-ibo-player/"
+                  href="/abonnement-atlas-pro/12-mois/"
                   className="text-[#9FB0CC] hover:text-white transition-colors"
                 >
-                  Abonnement IBO Player Pro
+                  Abonnement Atlas Pro 12 Mois
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/abonnement-iptv-smarters-pro/"
+                  href="/abonnement-atlas-pro/1-mois/"
                   className="text-[#9FB0CC] hover:text-white transition-colors"
                 >
-                  Abonnement IPTV Smarters Pro
+                  Abonnement Atlas Pro 1 Mois
                 </Link>
               </li>
               <li>
@@ -120,18 +120,18 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/abonnement-ibo-player/multi-tv/"
+                  href="/abonnement-atlas-pro/essai-gratuit/"
                   className="text-[#9FB0CC] hover:text-white transition-colors"
                 >
-                  IBO Player sur 2 TV
+                  Essai Gratuit 24h
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/abonnement-iptv-smarters-pro/multi-ecrans/"
+                  href="/commander/"
                   className="text-[#9FB0CC] hover:text-white transition-colors"
                 >
-                  IPTV Smarters Multi-Écran
+                  Commander en Ligne
                 </Link>
               </li>
               <li>

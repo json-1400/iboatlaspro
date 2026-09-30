@@ -86,13 +86,16 @@ export default function ConfigurerIboPlayerPage() {
 
             <div className="my-8 p-8 rounded-2xl bg-[#0A1428] border border-[#1E7BFF] text-center space-y-4">
               <h3 className="text-xl font-bold text-white">
-                Besoin d&apos;activer votre licence IBO Player Pro ?
+                Besoin d&apos;un abonnement IPTV 4K pour IBO Player Pro ?
               </h3>
+              <p className="text-xs sm:text-sm text-[#9FB0CC] max-w-md mx-auto">
+                Profitez de plus de 10 000 chaînes en direct et 50 000 VOD 4K sans coupure avec Atlas Pro 12 Mois.
+              </p>
               <Link
-                href="/abonnement-ibo-player/activation/"
+                href="/commander/?plan=12-mois"
                 className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-bold text-white bg-[#1E7BFF] hover:bg-[#2D9CFF] glow-primary transition-all"
               >
-                <span>Accéder au portail d&apos;activation (7,99 €)</span>
+                <span>Commander Atlas Pro 12 Mois (39,99 €)</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </div>

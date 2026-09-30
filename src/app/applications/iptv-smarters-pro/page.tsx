@@ -89,7 +89,7 @@ export default function IptvSmartersDownloadPage() {
       <StickyCTA
         title="Obtenez vos identifiants Smarters Pro"
         buttonText="Abonnement 1 an (39,99 €)"
-        href="/abonnement-iptv-smarters-pro/1-an/"
+        href="/commander/?plan=12-mois"
       />
       <Footer />
     </div>
