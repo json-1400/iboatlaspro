@@ -45,6 +45,16 @@ export default function ApplicationsHubPage() {
         "La déclinaison IBO dédiée aux abonnés Atlas Pro avec chargement instantané des playlists et design moderne.",
     },
     {
+      title: "Atlas Pro Max",
+      version: "v5.0.1",
+      platform: "Android TV, Fire Stick, Box, Mobile",
+      downloaderCode: "614920",
+      href: "/applications/atlas-pro-max/",
+      badge: "NOUVELLE VERSION 2026",
+      description:
+        "Lecteur nouvelle génération avec décodage 4K 50 FPS ultra-rapide, buffer adaptatif et compatibilité Android 7 à 14+.",
+    },
+    {
       title: "IPTV Smarters Pro",
       version: "v4.0.2",
       platform: "Android, iOS, Fire Stick, Windows, Mac",

@@ -1,43 +1,47 @@
+import type { MetadataRoute } from "next";
+
 /**
  * robots.ts — iboatlaspro.com
  *
  * World-class SEO rules applied:
- * ─────────────────────────────────────────────────────────────────────────────
- * 1. Explicitly block all checkout/thank-you/API routes from all bots.
- *    Prevents crawl budget waste on non-indexable pages.
- *
- * 2. AdsBot (Google Ads quality scorer) must be blocked separately —
- *    it does NOT respect the wildcard `User-agent: *` rule.
- *    If not blocked, it crawls disallowed pages and affects ad quality scores.
- *
- * 3. Sitemap URL is declared absolutely (HTTPS, no trailing ambiguity).
- *
- * 4. No `Crawl-delay` directive — Google ignores it; Bing respects it.
- *    Crawl rate is better managed via Google Search Console.
- * ─────────────────────────────────────────────────────────────────────────────
+ * 1. Crawl budget preservation: Block checkout, thank-you, private API routes.
+ * 2. AdsBot-Google explicitly declared (does not follow wildcard rules).
+ * 3. AI Scraping / Content Harvester blocking: Block bots that consume bandwidth
+ *    and scrape catalog without providing search referral traffic.
+ * 4. Absolute HTTPS sitemap reference.
  */
-
-import type { MetadataRoute } from "next";
-
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
-        // All crawlers: allow the full site, block non-indexable paths
+        // Standard Search Crawlers (Googlebot, Bingbot, etc.)
         userAgent: "*",
         allow: "/",
         disallow: [
-          "/commander/",   // Checkout flow — no SEO value
-          "/merci/",       // Post-purchase thank-you — no SEO value
-          "/api/",         // API routes — not for indexing
+          "/commander/", // Checkout flow
+          "/merci/",     // Post-purchase order confirmation
+          "/api/",       // Server API routes
         ],
       },
       {
-        // Google Ads bot scores landing page quality separately.
-        // Must be listed explicitly — it ignores wildcard rules.
+        // Google Ads Landing Page Quality Evaluator
         userAgent: "AdsBot-Google",
         allow: "/",
         disallow: ["/commander/", "/merci/", "/api/"],
+      },
+      {
+        // AI Content Scrapers & Bandwidth Harvesters (Preserve Server Resources)
+        userAgent: [
+          "GPTBot",
+          "ChatGPT-User",
+          "CCBot",
+          "Bytespider",
+          "ClaudeBot",
+          "anthropic-ai",
+          "PerplexityBot",
+          "Amazonbot",
+        ],
+        disallow: ["/"],
       },
     ],
     sitemap: "https://iboatlaspro.com/sitemap.xml",

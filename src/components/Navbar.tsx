@@ -20,6 +20,7 @@ import {
   Wrench,
   AlertCircle,
   BookOpen,
+  Users,
 } from "lucide-react";
 import { Logo } from "@/components/Logo";
 
@@ -39,36 +40,12 @@ interface NavSection {
 
 const NAV_MENU: readonly NavSection[] = [
   {
-    label: "Abonnements",
-    items: [
-      {
-        title: "Atlas Pro Officiel",
-        desc: "Notre formule phare 4K sans coupure",
-        href: "/abonnement-atlas-pro/",
-        icon: Zap,
-        badge: "Populaire",
-      },
-      {
-        title: "Offre 12 Mois (3,33 €/mois)",
-        desc: "Accès annuel complet à 39,99 € seulement",
-        href: "/abonnement-atlas-pro/12-mois/",
-        icon: ShieldCheck,
-        badge: "39,99 €",
-      },
-      {
-        title: "Multi-Écrans (2 à 4 TV)",
-        desc: "Diffusion simultanée salon & chambres",
-        href: "/abonnement-atlas-pro/multi-ecrans/",
-        icon: Globe,
-        badge: "+20 €",
-      },
-      {
-        title: "Essai Gratuit 24h",
-        desc: "Testez nos serveurs sans engagement",
-        href: "/abonnement-atlas-pro/essai-gratuit/",
-        icon: Star,
-      },
-    ],
+    label: "Abonnement",
+    href: "/#abonnement",
+  },
+  {
+    label: "Multi-Écrans",
+    href: "/abonnement-atlas-pro-multi-ecrans/",
   },
   {
     label: "Chaînes & VOD",
@@ -163,10 +140,6 @@ const NAV_MENU: readonly NavSection[] = [
       },
     ],
   },
-  {
-    label: "Avis",
-    href: "/avis-clients/",
-  },
 ];
 
 export function Navbar() {
@@ -228,26 +201,44 @@ export function Navbar() {
                 onMouseEnter={() => setActiveDropdown(section.label)}
                 onMouseLeave={() => setActiveDropdown(null)}
               >
-                <button
-                  type="button"
-                  onClick={() =>
-                    setActiveDropdown(isOpen ? null : section.label)
-                  }
-                  className={`flex items-center gap-1.5 text-xs font-semibold px-3.5 py-1.5 rounded-full transition-colors ${
-                    isOpen
-                      ? "text-white bg-[#1E7BFF]/15"
-                      : "text-[#9FB0CC] hover:text-white hover:bg-white/5"
-                  }`}
-                  aria-expanded={isOpen}
-                  aria-haspopup="true"
-                >
-                  <span>{section.label}</span>
-                  <ChevronDown
-                    className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                      isOpen ? "rotate-180 text-[#1E7BFF]" : "text-[#9FB0CC]"
+                {section.href ? (
+                  <Link
+                    href={section.href}
+                    className={`flex items-center gap-1.5 text-xs font-semibold px-3.5 py-1.5 rounded-full transition-colors ${
+                      isOpen
+                        ? "text-white bg-[#1E7BFF]/15"
+                        : "text-[#9FB0CC] hover:text-white hover:bg-white/5"
                     }`}
-                  />
-                </button>
+                  >
+                    <span>{section.label}</span>
+                    <ChevronDown
+                      className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                        isOpen ? "rotate-180 text-[#1E7BFF]" : "text-[#9FB0CC]"
+                      }`}
+                    />
+                  </Link>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setActiveDropdown(isOpen ? null : section.label)
+                    }
+                    className={`flex items-center gap-1.5 text-xs font-semibold px-3.5 py-1.5 rounded-full transition-colors ${
+                      isOpen
+                        ? "text-white bg-[#1E7BFF]/15"
+                        : "text-[#9FB0CC] hover:text-white hover:bg-white/5"
+                    }`}
+                    aria-expanded={isOpen}
+                    aria-haspopup="true"
+                  >
+                    <span>{section.label}</span>
+                    <ChevronDown
+                      className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                        isOpen ? "rotate-180 text-[#1E7BFF]" : "text-[#9FB0CC]"
+                      }`}
+                    />
+                  </button>
+                )}
 
                 {/* Dropdown Popover */}
                 {isOpen && section.items && (
@@ -339,7 +330,7 @@ export function Navbar() {
 
           {/* Primary CTA button */}
           <Link
-            href="/abonnement-atlas-pro/12-mois/"
+            href="/abonnement-atlas-pro-12-mois/"
             className="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-xs font-bold text-white bg-[#1E7BFF] hover:bg-[#2D9CFF] glow-primary transition-all duration-200 active:scale-[0.98]"
           >
             Commander maintenant

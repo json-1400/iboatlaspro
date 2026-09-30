@@ -80,66 +80,74 @@ export function Footer() {
             <ul className="space-y-2 text-xs">
               <li>
                 <Link
-                  href="/abonnement-atlas-pro/12-mois/"
+                  href="/abonnement-atlas-pro-12-mois/"
                   className="text-white font-semibold hover:text-[#1E7BFF] transition-colors"
                 >
-                  Abonnement IPTV 12 Mois (39,99 €)
+                  Abonnement Atlas Pro 12 Mois (39,99 €)
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/abonnement-atlas-pro/"
+                  href="/#abonnement"
                   className="text-[#9FB0CC] hover:text-white transition-colors"
                 >
-                  Abonnement Atlas Pro Officiel
+                  Grille Tarifaire Complète
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/abonnement-atlas-pro/12-mois/"
+                  href="/abonnement-atlas-pro-6-mois/"
                   className="text-[#9FB0CC] hover:text-white transition-colors"
                 >
-                  Abonnement Atlas Pro 12 Mois
+                  Abonnement Atlas Pro 6 Mois
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/abonnement-atlas-pro/1-mois/"
+                  href="/abonnement-atlas-pro-3-mois/"
                   className="text-[#9FB0CC] hover:text-white transition-colors"
                 >
-                  Abonnement Atlas Pro 1 Mois
+                  Abonnement Atlas Pro 3 Mois
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/abonnement-atlas-pro/multi-ecrans/"
+                  href="/abonnement-atlas-pro-multi-ecrans/"
                   className="text-[#22C55E] font-medium hover:underline flex items-center gap-1"
                 >
-                  <span>Abonnement IPTV Multi-Écrans</span>
+                  <span>Abonnement IPTV Multi-Écrans (12 Mois)</span>
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/abonnement-atlas-pro/essai-gratuit/"
+                  href="/abonnement-atlas-pro-2-ecrans/"
                   className="text-[#9FB0CC] hover:text-white transition-colors"
                 >
-                  Essai Gratuit 24h
+                  Pack Duo (2 Écrans - 12 Mois)
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/abonnement-atlas-pro-3-ecrans/"
+                  className="text-[#9FB0CC] hover:text-white transition-colors"
+                >
+                  Pack Famille (3 Écrans - 12 Mois)
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/abonnement-atlas-pro-4-ecrans/"
+                  className="text-[#9FB0CC] hover:text-white transition-colors"
+                >
+                  Pack Maxi (4 Écrans - 12 Mois)
                 </Link>
               </li>
               <li>
                 <Link
                   href="/commander/"
-                  className="text-[#9FB0CC] hover:text-white transition-colors"
-                >
-                  Commander en Ligne
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/abonnement-atlas-pro/essai-gratuit/"
                   className="text-[#1E7BFF] font-semibold hover:underline"
                 >
-                  Essai Gratuit 24h
+                  Commander en Ligne
                 </Link>
               </li>
             </ul>
@@ -273,15 +281,6 @@ export function Footer() {
               Confiance & Légal
             </h3>
             <ul className="space-y-2 text-xs">
-              <li>
-                <Link
-                  href="/avis-clients/"
-                  className="text-[#9FB0CC] hover:text-white transition-colors font-medium flex items-center gap-1.5"
-                >
-                  <span className="text-[#FFB800]">★</span>
-                  <span>Avis Clients (4.8/5 sur 2 348 avis)</span>
-                </Link>
-              </li>
               <li>
                 <Link
                   href="/centre-d-aide/guides/iptv-legal-ou-illegal/"

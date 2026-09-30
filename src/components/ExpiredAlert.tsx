@@ -12,7 +12,7 @@ export function ExpiredAlert({
   title = "Votre code ou abonnement est expiré ?",
   message = "Évitez les coupures et bénéficiez de notre flux 4K ultra-stable sur serveurs dédiés avec activation immédiate.",
   ctaText = "Commander l'abonnement Atlas Pro 12 mois",
-  href = "/abonnement-atlas-pro/12-mois/",
+  href = "/abonnement-atlas-pro-12-mois/",
 }: ExpiredAlertProps) {
   return (
     <aside

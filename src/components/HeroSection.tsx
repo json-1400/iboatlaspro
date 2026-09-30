@@ -27,19 +27,17 @@ export function HeroSection() {
             </div>
 
             {/* H1 Heading */}
-            <h1 className="text-4xl sm:text-5xl lg:text-[62px] font-extrabold tracking-tight text-white leading-[1.08]">
-              Atlas Pro France :{" "}
+            <h1 className="text-4xl sm:text-5xl lg:text-[60px] font-extrabold tracking-tight text-white leading-[1.08]">
+              Atlas Pro Officiel :{" "}
               <span className="gradient-text-blue block sm:inline">
-                Abonnement IPTV 4K
+                Plateforme IPTV 4K
               </span>{" "}
-              sans coupure
+              & Serveurs Stables
             </h1>
 
             {/* Subtitle / Paragraph */}
             <p className="text-base sm:text-lg text-[#9FB0CC] leading-relaxed max-w-xl font-normal">
-              Profitez d&apos;Atlas Pro en France : des milliers de chaînes TV en
-              direct, films et séries en qualité 4K / FHD, sans coupure et sur
-              tous vos appareils. Activation instantanée en 15 minutes et support 24/7.
+              Accédez à l&apos;infrastructure officielle <strong className="text-white font-semibold">Atlas Pro en France</strong> : plus de 10 000 chaînes TV en direct et VOD en qualité 4K Ultra HD sans aucune coupure. Serveurs CDN redondés 99.9%, zapping instantané et activation en 15 minutes.
             </p>
 
             {/* Row of 4 Features */}
@@ -79,10 +77,10 @@ export function HeroSection() {
             {/* Main Primary CTA Button */}
             <div className="pt-3">
               <Link
-                href="#pricing"
+                href="#abonnement"
                 className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-base font-bold text-white bg-[#1E7BFF] hover:bg-[#2D9CFF] glow-primary glow-primary-hover transition-all duration-200 transform hover:-translate-y-0.5"
               >
-                <span>Obtenir un accès maintenant</span>
+                <span>Choisir mon abonnement</span>
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </div>

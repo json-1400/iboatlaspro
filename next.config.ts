@@ -2,6 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  poweredByHeader: false,
+  trailingSlash: true,
+
   images: {
     formats: ["image/avif", "image/webp"],
     remotePatterns: [
@@ -11,17 +14,33 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  async redirects() {
+
+  async headers() {
     return [
       {
-        source: "/abonnement-atlas-pro/1-mois",
-        destination: "/abonnement-atlas-pro/12-mois/",
-        permanent: true,
-      },
-      {
-        source: "/abonnement-atlas-pro/1-mois/",
-        destination: "/abonnement-atlas-pro/12-mois/",
-        permanent: true,
+        source: "/:path*",
+        headers: [
+          {
+            key: "X-Content-Type-Options",
+            value: "nosniff",
+          },
+          {
+            key: "X-Frame-Options",
+            value: "SAMEORIGIN",
+          },
+          {
+            key: "Referrer-Policy",
+            value: "strict-origin-when-cross-origin",
+          },
+          {
+            key: "X-DNS-Prefetch-Control",
+            value: "on",
+          },
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=()",
+          },
+        ],
       },
     ];
   },

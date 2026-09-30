@@ -165,33 +165,45 @@ export const STATS: readonly StatItem[] = [
 export const FAQ_ITEMS: readonly FaqItem[] = [
   {
     id: "faq-1",
-    question: "Comment fonctionne l'IPTV ?",
+    question: "Qu'est-ce que l'abonnement Atlas Pro officiel en France ?",
     answer:
-      "L'IPTV (Télévision sur Protocole Internet) permet de diffuser des chaînes de télévision et des contenus vidéo à la demande directement via votre connexion Internet haut débit, sans parabole ni décodeur traditionnel.",
+      "Atlas Pro est une infrastructure IPTV haut débit permettant d'accéder à plus de 10 000 chaînes directes en 4K/FHD et plus de 50 000 films et séries VOD. Le service officiel garantit des serveurs équilibrés sans coupure, une compatibilité universelle et une activation instantanée par code Xtream ou lien M3U.",
   },
   {
     id: "faq-2",
-    question: "Sur quels appareils puis-je l'utiliser ?",
+    question: "Quel est le prix de l'abonnement Atlas Pro 12 mois ?",
     answer:
-      "Notre service est compatible avec les Smart TV (Samsung, LG, Sony), boîtiers Android, Fire TV Stick, récepteurs MAG, smartphones et tablettes (iOS et Android), ainsi que les ordinateurs Windows et Mac.",
+      "L'abonnement Atlas Pro 12 mois est proposé à 39,99 € (soit seulement 3,33 €/mois). Des formules 3 mois (19,99 €) et 6 mois (29,99 €) sont également disponibles, ainsi que des offres multi-écrans 2, 3 ou 4 écrans simultanés.",
   },
   {
     id: "faq-3",
-    question: "Est-ce que c'est légal ?",
+    question: "Pourquoi Atlas Pro ne peut pas se connecter au serveur et comment résoudre ce problème ?",
     answer:
-      "L'utilisation de la technologie IPTV et des lecteurs de flux est tout à fait légale. Nous assurons la mise à disposition technique et une assistance dédiée 24/7 pour configurer vos applications préférées.",
+      "Cette erreur est presque toujours liée au blocage DNS appliqué par certains fournisseurs d'accès Internet (FAI). Pour la résoudre immédiatement : configurez les DNS de votre appareil ou routeur sur 8.8.8.8 (Google) ou 1.1.1.1 (Cloudflare), ou vérifiez la validité de vos identifiants auprès de notre support WhatsApp 24/7.",
   },
   {
     id: "faq-4",
-    question: "Proposez-vous un essai gratuit ?",
+    question: "Comment installer Atlas Pro sur Smart TV, Android Box ou Fire Stick ?",
     answer:
-      "Oui, nous mettons à votre disposition une période de test pour vérifier la compatibilité avec votre matériel et constater la fluidité de nos flux en 4K / Full HD avant tout abonnement.",
+      "Sur Android TV et Fire Stick, téléchargez l'application officielle Atlas Pro ONTV ou Atlas Pro Max via l'application Downloader (Code : 614920). Sur Smart TV Samsung ou LG, installez IBO Player ou IPTV Smarters Pro depuis le store d'applications et saisissez vos codes Xtream reçus par email.",
   },
   {
     id: "faq-5",
-    question: "Comment obtenir de l'aide ?",
+    question: "Puis-je utiliser mon abonnement Atlas Pro sur plusieurs écrans en même temps ?",
     answer:
-      "Notre équipe de support technique est joignable 24 heures sur 24 et 7 jours sur 7 directement par WhatsApp et Telegram pour vous assister dans l'installation ou répondre à toute question.",
+      "L'abonnement standard est mono-écran. Pour regarder simultanément sur plusieurs téléviseurs ou smartphones au sein du même foyer, souscrivez à l'offre Atlas Pro Multi-Écrans (formules 2, 3 ou 4 écrans simultanés sans freeze).",
+  },
+  {
+    id: "faq-6",
+    question: "Quelle vitesse de connexion Internet est requise pour le streaming 4K sans coupure ?",
+    answer:
+      "Une connexion d'au moins 15 à 25 Mbps (Fibre optique, 5G ou très bon VDSL) est recommandée pour profiter pleinement des flux Ultra HD 4K et FHD à 60 FPS avec notre technologie Anti-Freeze 2.0.",
+  },
+  {
+    id: "faq-7",
+    question: "Sous quel délai mon abonnement est-il activé ?",
+    answer:
+      "Dès la validation de votre commande, vos identifiants de connexion (URL de serveur, identifiant, mot de passe et lien M3U) vous sont expédiés en moins de 15 minutes par email et WhatsApp avec un guide complet de démarrage.",
   },
 ] as const;
 

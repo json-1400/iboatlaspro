@@ -10,7 +10,7 @@ interface StickyCTAProps {
 export function StickyCTA({
   title = "Accès IPTV instantané en 15 minutes",
   buttonText = "Commander mon code",
-  href = "/abonnement-atlas-pro/12-mois/",
+  href = "/abonnement-atlas-pro-12-mois/",
 }: StickyCTAProps) {
   return (
     <aside

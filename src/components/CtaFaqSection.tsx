@@ -71,7 +71,7 @@ export function CtaFaqSection() {
 
             <div className="pt-8 relative z-10">
               <Link
-                href="#pricing"
+                href="#abonnement"
                 className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-sm font-bold text-white bg-[#1E7BFF] hover:bg-[#2D9CFF] glow-primary transition-all duration-200"
               >
                 <span>Obtenir un accès maintenant</span>

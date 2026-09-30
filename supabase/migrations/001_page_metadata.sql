@@ -54,16 +54,21 @@ VALUES
   -- Homepage
   ('',                                                              '2026-09-30', 'daily',   1.00, 'atlas pro france KW added, FAQ schema'),
 
-  -- Silo 1: ABONNEMENT
-  ('/abonnement-atlas-pro/',                                        '2026-09-30', 'weekly',  0.95, 'cannibalization fix: brand-nav KW only'),
-  ('/abonnement-atlas-pro/12-mois/',                               '2026-09-30', 'weekly',  0.95, 'transactional KW: abonnement iptv 12 mois'),
-  ('/abonnement-atlas-pro/multi-ecrans/',                          '2026-09-15', 'weekly',  0.85, 'multi-screen plans'),
+  -- Silo 1: ABONNEMENTS (Root-Level Plans)
+  ('/abonnement-atlas-pro-12-mois/',                               '2026-09-30', 'weekly',  0.95, 'transactional flagship: abonnement atlas pro 12 mois'),
+  ('/abonnement-atlas-pro-6-mois/',                                '2026-09-30', 'weekly',  0.90, 'transactional: abonnement atlas pro 6 mois'),
+  ('/abonnement-atlas-pro-3-mois/',                                '2026-09-30', 'weekly',  0.85, 'transactional: abonnement atlas pro 3 mois'),
+  ('/abonnement-atlas-pro-multi-ecrans/',                          '2026-09-30', 'weekly',  0.95, 'multi-screens flagship hub'),
+  ('/abonnement-atlas-pro-2-ecrans/',                              '2026-09-30', 'weekly',  0.85, 'multi-screens 2 devices'),
+  ('/abonnement-atlas-pro-3-ecrans/',                              '2026-09-30', 'weekly',  0.85, 'multi-screens 3 devices'),
+  ('/abonnement-atlas-pro-4-ecrans/',                              '2026-09-30', 'weekly',  0.85, 'multi-screens 4 devices'),
 
   -- Silo 2: APPLICATIONS
-  ('/applications/',                                               '2026-09-20', 'weekly',  0.90, 'download hub'),
-  ('/applications/atlas-pro-ontv/',                               '2026-09-20', 'weekly',  0.90, 'atlas pro ontv apk'),
-  ('/applications/atlas-pro-ibo/',                                '2026-09-20', 'weekly',  0.85, 'atlas pro ibo samsung'),
-  ('/applications/iptv-smarters-pro/',                            '2026-09-20', 'weekly',  0.80, 'smarters pro abonnement'),
+  ('/applications/',                                               '2026-09-30', 'weekly',  0.90, 'download hub'),
+  ('/applications/atlas-pro-max/',                                 '2026-09-30', 'weekly',  0.90, 'NEW: atlas pro max apk 5.0.1'),
+  ('/applications/atlas-pro-ontv/',                               '2026-09-30', 'weekly',  0.90, 'atlas pro ontv apk'),
+  ('/applications/atlas-pro-ibo/',                                '2026-09-30', 'weekly',  0.85, 'atlas pro ibo samsung'),
+  ('/applications/iptv-smarters-pro/',                            '2026-09-30', 'weekly',  0.80, 'smarters pro abonnement'),
 
   -- Silo 3: INSTALLATION
   ('/centre-d-aide/installation/',                                '2026-09-20', 'monthly', 0.80, 'install hub'),
@@ -97,9 +102,6 @@ VALUES
   ('/centre-d-aide/guides/',                                      '2026-09-20', 'monthly', 0.70, 'guides hub'),
   ('/centre-d-aide/guides/iptv-legal-ou-illegal/',               '2026-09-20', 'monthly', 0.70, 'iptv légal'),
   ('/centre-d-aide/guides/comparatif-box-streaming/',            '2026-09-20', 'monthly', 0.70, 'comparatif box'),
-
-  -- Social Proof
-  ('/avis-clients/',                                              '2026-09-20', 'weekly',  0.70, 'reviews'),
 
   -- Legal (low priority = spend crawl budget elsewhere)
   ('/cgv/',                                                       '2026-09-01', 'monthly', 0.10, 'CGV'),

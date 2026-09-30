@@ -69,7 +69,7 @@ export function PricingCard({ plan }: PricingCardProps) {
         </div>
 
         {/* CTA Button */}
-        <div className="mt-6 mb-7">
+        <div className="mt-6 mb-4">
           <Link
             href={`/commander/?plan=${targetPlan}`}
             className={`w-full inline-flex items-center justify-center px-5 py-3 rounded-full text-sm font-semibold transition-all duration-200 ${
@@ -79,6 +79,17 @@ export function PricingCard({ plan }: PricingCardProps) {
             }`}
           >
             {ctaText}
+          </Link>
+        </div>
+
+        {/* Link to dedicated SEO plan page */}
+        <div className="mb-6 text-center">
+          <Link
+            href={`/abonnement-atlas-pro-${targetPlan}/`}
+            className="text-xs text-[#9FB0CC] hover:text-[#1E7BFF] transition-colors underline-offset-4 hover:underline inline-flex items-center gap-1"
+          >
+            <span>Détails & fonctionnalités {duration}</span>
+            <span>→</span>
           </Link>
         </div>
 

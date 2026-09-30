@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/HeroSection";
+import { AppsShowcaseSection } from "@/components/AppsShowcaseSection";
 import { DevicesGrid } from "@/components/DevicesGrid";
 import { VodCarousel } from "@/components/VodCarousel";
 import { PricingSection } from "@/components/PricingSection";
+import { MultiroomBanner } from "@/components/MultiroomBanner";
+import { InfrastructureSection } from "@/components/InfrastructureSection";
+import { HowToStepsSection } from "@/components/HowToStepsSection";
 import { Testimonials } from "@/components/Testimonials";
 import { StatsBand } from "@/components/StatsBand";
 import { CtaFaqSection } from "@/components/CtaFaqSection";
@@ -11,51 +15,97 @@ import { Footer } from "@/components/Footer";
 
 export function generateMetadata(): Metadata {
   return {
-    title: "Atlas Pro France — Abonnement IPTV 4K Sans Coupure | iboatlaspro",
+    title: "Atlas Pro France — Site Officiel & Serveurs IPTV 4K Sans Coupure",
     description:
-      "Abonnement Atlas Pro officiel en France : +10 000 chaînes en direct, VOD 4K/FHD, serveurs stables 99.9 %. Atlas Pro ONTV, Atlas Pro IBO, IPTV Smarters. Activation en 15 min.",
-    keywords:
-      "atlas pro france, atlas pro, atlas pro iptv, abonnement iptv, atlas pro 2026, atlaspro, iptv atlas pro, atlas pro ontv",
+      "Abonnement Atlas Pro officiel en France : +10 000 chaînes directes 4K UHD, VOD illimitée, technologie Anti-Freeze 2.0 et serveurs CDN stables. Activation immédiate en 15 min.",
+    keywords: [
+      "atlas pro",
+      "atlas pro france",
+      "atlas pro officiel",
+      "serveur atlas pro",
+      "abonnement atlas pro",
+      "atlas pro iptv",
+      "atlas pro max",
+      "atlas pro ontv",
+      "code downloader atlas pro",
+      "iptv 4k france",
+    ],
     alternates: {
-      canonical: "https://iboatlaspro.com",
+      canonical: "https://iboatlaspro.com/",
+    },
+    openGraph: {
+      title: "Atlas Pro France — Site Officiel & Serveurs IPTV 4K Sans Coupure",
+      description:
+        "Accédez à plus de 10 000 chaînes 4K et 50 000 films/séries avec l'abonnement officiel Atlas Pro. Serveurs haute disponibilité sans coupure.",
+      url: "https://iboatlaspro.com",
+      siteName: "Atlas Pro Officiel",
+      locale: "fr_FR",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Atlas Pro France — Site Officiel & Serveurs IPTV 4K",
+      description:
+        "Abonnement officiel Atlas Pro IPTV en France. +10 000 chaînes 4K UHD sans coupure.",
     },
   };
 }
 
-const homepageFaqSchema = {
+const homepageSchema = {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: [
+  "@graph": [
     {
-      "@type": "Question",
-      name: "Qu'est-ce qu'Atlas Pro IPTV en France ?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Atlas Pro est une application IPTV permettant d'accéder à plus de 10 000 chaînes TV en direct et à une VOD illimitée en qualité 4K/FHD. En France, l'abonnement Atlas Pro est distribué par iboatlaspro.com avec une activation en moins de 15 minutes.",
+      "@type": "WebSite",
+      "@id": "https://iboatlaspro.com/#website",
+      "url": "https://iboatlaspro.com",
+      "name": "Atlas Pro Officiel France",
+      "description": "Portail officiel d'abonnement Atlas Pro IPTV en France",
+      "inLanguage": "fr-FR",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://iboatlaspro.com/applications/?q={search_term_string}",
+        "query-input": "required name=search_term_string",
       },
     },
     {
-      "@type": "Question",
-      name: "Quel est le prix de l'abonnement Atlas Pro 12 mois en France ?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "L'abonnement Atlas Pro 12 mois est disponible à 39,99 € soit 3,33 € par mois. C'est le meilleur rapport qualité-prix du marché IPTV en France.",
+      "@type": "Organization",
+      "@id": "https://iboatlaspro.com/#organization",
+      "name": "Atlas Pro France",
+      "url": "https://iboatlaspro.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://iboatlaspro.com/icon.svg",
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+212715214002",
+        "contactType": "customer service",
+        "availableLanguage": ["French", "English", "Arabic"],
       },
     },
     {
-      "@type": "Question",
-      name: "Atlas Pro est-il compatible avec ma Smart TV Samsung ou LG ?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "Oui. Atlas Pro ONTV et Atlas Pro IBO sont compatibles avec les Smart TV Samsung (Tizen), LG (webOS), Android TV, Fire TV Stick, iPhone, iPad, PC Windows et Mac.",
+      "@type": "Product",
+      "@id": "https://iboatlaspro.com/#product",
+      "name": "Abonnement Atlas Pro IPTV 4K",
+      "description":
+        "Abonnement officiel Atlas Pro IPTV : +10 000 chaînes directes 4K UHD, VOD illimitée, technologie Anti-Freeze 2.0.",
+      "brand": {
+        "@type": "Brand",
+        "name": "Atlas Pro",
       },
-    },
-    {
-      "@type": "Question",
-      name: "Pourquoi Atlas Pro ne peut pas se connecter au serveur ?",
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: "L'erreur de connexion sur Atlas Pro est généralement causée par un blocage DNS de votre fournisseur d'accès. Solution : changez vos DNS vers 8.8.8.8 (Google) ou 1.1.1.1 (Cloudflare) dans les paramètres réseau de votre appareil.",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "1420",
+        "bestRating": "5",
+        "worstRating": "1",
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "EUR",
+        "lowPrice": "19.99",
+        "highPrice": "79.99",
+        "offerCount": "7",
       },
     },
   ],
@@ -66,7 +116,7 @@ export default function HomePage() {
     <div className="min-h-screen flex flex-col bg-[#040A17] text-white">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageFaqSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homepageSchema) }}
       />
       {/* Sticky Blurred Navbar */}
       <Navbar />
@@ -75,14 +125,26 @@ export default function HomePage() {
         {/* Hero Section with H1, Badges, Features and Cinematic Showcase */}
         <HeroSection />
 
+        {/* Official Applications Showcase (ONTV, Max, IBO) */}
+        <AppsShowcaseSection />
+
         {/* Compatible Devices Grid (8 devices) */}
         <DevicesGrid />
 
         {/* 4K VOD Poster Carousel with Scroll-triggered Swiper */}
         <VodCarousel />
 
-        {/* Pricing Offers (4 tiers with 6M highlighted) */}
+        {/* Pricing Offers (3 tiers with 12M highlighted, link to #abonnement) */}
         <PricingSection />
+
+        {/* Dedicated Multiroom & Family Banner */}
+        <MultiroomBanner />
+
+        {/* Technical Infrastructure & E-E-A-T (CDN, 8 Datacenters, Anti-Freeze 2.0) */}
+        <InfrastructureSection />
+
+        {/* 3-Step Activation Guide */}
+        <HowToStepsSection />
 
         {/* Verified Customer Testimonials */}
         <Testimonials />
