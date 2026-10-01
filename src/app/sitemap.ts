@@ -65,6 +65,9 @@ const STATIC_ROUTES: readonly StaticRouteDef[] = [
   { path: "/politique-remboursement/", changeFrequency: "yearly", priority: 0.30 },
 ];
 
+// Stable content revision date for static catalog & guides (ensures search engines respect lastmod)
+const STATIC_CONTENT_REVISION_DATE = new Date("2026-03-31T00:00:00.000Z");
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const dbPages = await fetchSitemapMetadata();
   const subscriptionPlans = getAllSubscriptionPlans();
@@ -72,7 +75,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Dynamic subscription plan URLs
   const planUrls: MetadataRoute.Sitemap = subscriptionPlans.map((plan) => ({
     url: `${BASE_URL}/${plan.slug}/`,
-    lastModified: new Date(),
+    lastModified: STATIC_CONTENT_REVISION_DATE,
     changeFrequency: "weekly",
     priority: plan.isPopular ? 0.95 : 0.90,
   }));
@@ -81,7 +84,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const fallbackUrls: MetadataRoute.Sitemap = [
     ...STATIC_ROUTES.map((route) => ({
       url: `${BASE_URL}${route.path}`,
-      lastModified: new Date(),
+      lastModified: STATIC_CONTENT_REVISION_DATE,
       changeFrequency: route.changeFrequency,
       priority: route.priority,
     })),
