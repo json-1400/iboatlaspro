@@ -60,9 +60,9 @@ const STATIC_ROUTES: readonly StaticRouteDef[] = [
   { path: "/centre-d-aide/guides/comparatif-box-streaming/", changeFrequency: "monthly", priority: 0.70 },
 
   // Legal
-  { path: "/mentions-legales/", changeFrequency: "yearly", priority: 0.30 },
+  { path: "/conditions-utilisation/", changeFrequency: "yearly", priority: 0.30 },
   { path: "/confidentialite/", changeFrequency: "yearly", priority: 0.30 },
-  { path: "/cgv/", changeFrequency: "yearly", priority: 0.30 },
+  { path: "/politique-remboursement/", changeFrequency: "yearly", priority: 0.30 },
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

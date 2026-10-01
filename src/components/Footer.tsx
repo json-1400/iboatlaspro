@@ -291,18 +291,10 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/cgv/"
+                  href="/conditions-utilisation/"
                   className="text-[#9FB0CC] hover:text-white transition-colors"
                 >
-                  Conditions Générales de Vente
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/mentions-legales/"
-                  className="text-[#9FB0CC] hover:text-white transition-colors"
-                >
-                  Mentions Légales
+                  Conditions d&apos;utilisation
                 </Link>
               </li>
               <li>
@@ -310,7 +302,15 @@ export function Footer() {
                   href="/confidentialite/"
                   className="text-[#9FB0CC] hover:text-white transition-colors"
                 >
-                  Politique de Confidentialité (RGPD)
+                  Politique de confidentialité
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/politique-remboursement/"
+                  className="text-[#9FB0CC] hover:text-white transition-colors"
+                >
+                  Politique de remboursement
                 </Link>
               </li>
             </ul>
