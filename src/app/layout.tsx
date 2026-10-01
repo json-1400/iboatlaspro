@@ -14,17 +14,17 @@ export const metadata: Metadata = {
   description:
     "Profitez de milliers de chaînes TV, films et séries en direct en qualité 4K / FHD sans coupure. Activation instantanée, compatible tous appareils, support client 24/7.",
   alternates: {
-    canonical: "https://iboatlaspro.com",
+    canonical: "https://iboatlaspro.com/",
     languages: {
-      "fr-FR": "https://iboatlaspro.com",
-      "x-default": "https://iboatlaspro.com",
+      "fr-FR": "https://iboatlaspro.com/",
+      "x-default": "https://iboatlaspro.com/",
     },
   },
   openGraph: {
     title: "iboatlaspro - Abonnement IPTV Premium 4K / FHD",
     description:
       "Votre monde de divertissement sans limites. Accédez à toutes vos chaînes et films préférés en 4K.",
-    url: "https://iboatlaspro.com",
+    url: "https://iboatlaspro.com/",
     siteName: "iboatlaspro",
     locale: "fr_FR",
     type: "website",
