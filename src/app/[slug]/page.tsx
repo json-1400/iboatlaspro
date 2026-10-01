@@ -106,12 +106,6 @@ export default async function DynamicPlanPage({ params }: PageProps) {
           priceValidUntil: "2026-12-31",
           availability: "https://schema.org/InStock",
           itemCondition: "https://schema.org/NewCondition",
-        },
-        aggregateRating: {
-          "@type": "AggregateRating",
-          ratingValue: "4.9",
-          reviewCount: "420",
-        },
       },
       {
         "@type": "FAQPage",

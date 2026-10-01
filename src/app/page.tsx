@@ -93,13 +93,6 @@ const homepageSchema = {
         "@type": "Brand",
         "name": "Atlas Pro",
       },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "reviewCount": "1420",
-        "bestRating": "5",
-        "worstRating": "1",
-      },
       "offers": {
         "@type": "AggregateOffer",
         "priceCurrency": "EUR",

@@ -88,11 +88,6 @@ const jsonLdGraph = {
         highPrice: "79.99",
         offerCount: "3",
       },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.8",
-        reviewCount: "2348",
-      },
     },
   ],
 };
