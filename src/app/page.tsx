@@ -9,6 +9,7 @@ import { MultiroomBanner } from "@/components/MultiroomBanner";
 import { InfrastructureSection } from "@/components/InfrastructureSection";
 import { HowToStepsSection } from "@/components/HowToStepsSection";
 import { StatsBand } from "@/components/StatsBand";
+import { AntiThrottlingSection } from "@/components/AntiThrottlingSection";
 import { CtaFaqSection } from "@/components/CtaFaqSection";
 import { Footer } from "@/components/Footer";
 
@@ -152,6 +153,9 @@ export default function HomePage() {
 
         {/* Key Performance Stats Band */}
         <StatsBand />
+
+        {/* E-E-A-T Anti-Throttling & Network Optimization Guide */}
+        <AntiThrottlingSection />
 
         {/* CTA, Interactive FAQ Accordion, WhatsApp & Support */}
         <CtaFaqSection />
