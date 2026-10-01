@@ -89,14 +89,21 @@ export default async function DynamicPlanPage({ params }: PageProps) {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Product",
-        "@id": `https://iboatlaspro.com/${plan.slug}/#product`,
+        "@type": "Service",
+        "@id": `https://iboatlaspro.com/${plan.slug}/#service`,
         name: plan.name,
         description: plan.metaDescription,
-        image: "https://iboatlaspro.com/images/hero-devices.jpg",
-        brand: {
-          "@type": "Brand",
-          name: "Atlas Pro",
+        serviceType: "DigitalService",
+        category: "Abonnement IPTV",
+        provider: {
+          "@type": "Organization",
+          "@id": "https://iboatlaspro.com/#organization",
+          name: "Atlas Pro France",
+          url: "https://iboatlaspro.com",
+        },
+        areaServed: {
+          "@type": "Country",
+          name: "France",
         },
         offers: {
           "@type": "Offer",
@@ -104,8 +111,11 @@ export default async function DynamicPlanPage({ params }: PageProps) {
           priceCurrency: "EUR",
           price: plan.priceNumeric.toFixed(2),
           priceValidUntil: new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split("T")[0],
-          availability: "https://schema.org/InStock",
-          itemCondition: "https://schema.org/NewCondition",
+          availability: "https://schema.org/OnlineOnly",
+          offeredBy: {
+            "@id": "https://iboatlaspro.com/#organization",
+          },
+        },
       },
       {
         "@type": "FAQPage",

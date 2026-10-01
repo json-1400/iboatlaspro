@@ -84,17 +84,30 @@ const jsonLdGraph = {
       },
     },
     {
-      "@type": "Product",
-      "@id": "https://iboatlaspro.com/#product",
+      "@type": "Service",
+      "@id": "https://iboatlaspro.com/#service",
       name: "Abonnement IPTV Premium iboatlaspro",
       description:
-        "Accès à plus de 10 000 chaînes de télévision et films en 4K / FHD sans coupure.",
+        "Service d'accès à plus de 10 000 chaînes de télévision et films en 4K / FHD sans coupure. Activation instantanée, compatible tous appareils.",
+      serviceType: "DigitalService",
+      category: "Streaming IPTV",
+      provider: {
+        "@id": "https://iboatlaspro.com/#organization",
+      },
+      areaServed: {
+        "@type": "Country",
+        name: "France",
+      },
       offers: {
         "@type": "AggregateOffer",
         priceCurrency: "EUR",
         lowPrice: "19.99",
         highPrice: "79.99",
         offerCount: "3",
+        availability: "https://schema.org/OnlineOnly",
+        offeredBy: {
+          "@id": "https://iboatlaspro.com/#organization",
+        },
       },
     },
   ],

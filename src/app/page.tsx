@@ -86,14 +86,19 @@ const homepageSchema = {
       },
     },
     {
-      "@type": "Product",
-      "@id": "https://iboatlaspro.com/#product",
+      "@type": "Service",
+      "@id": "https://iboatlaspro.com/#service",
       "name": "Abonnement Atlas Pro IPTV 4K",
       "description":
-        "Abonnement officiel Atlas Pro IPTV : +10 000 chaînes directes 4K UHD, VOD illimitée, technologie Anti-Freeze 2.0.",
-      "brand": {
-        "@type": "Brand",
-        "name": "Atlas Pro",
+        "Service d'abonnement officiel Atlas Pro IPTV : +10 000 chaînes directes 4K UHD, VOD illimitée, technologie Anti-Freeze 2.0. Activation instantanée en 15 minutes.",
+      "serviceType": "DigitalService",
+      "category": "Streaming IPTV",
+      "provider": {
+        "@id": "https://iboatlaspro.com/#organization",
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "France",
       },
       "offers": {
         "@type": "AggregateOffer",
@@ -101,6 +106,10 @@ const homepageSchema = {
         "lowPrice": "19.99",
         "highPrice": "79.99",
         "offerCount": "7",
+        "availability": "https://schema.org/OnlineOnly",
+        "offeredBy": {
+          "@id": "https://iboatlaspro.com/#organization",
+        },
       },
     },
   ],
