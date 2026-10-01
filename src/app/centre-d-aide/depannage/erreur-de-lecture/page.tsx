@@ -191,7 +191,7 @@ export default function ErreurDeLecturePage() {
                 et vous guider en temps réel via WhatsApp.
               </p>
               <Link
-                href="/abonnement-atlas-pro/12-mois/"
+                href="/abonnement-atlas-pro-12-mois/"
                 className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-bold text-white bg-[#1E7BFF] hover:bg-[#2D9CFF] glow-primary transition-all"
               >
                 <span>Renouveler ou commander Atlas Pro</span>

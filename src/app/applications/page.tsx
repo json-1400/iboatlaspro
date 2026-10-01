@@ -151,7 +151,7 @@ export default function ApplicationsHubPage() {
       <StickyCTA
         title="Besoin d'un abonnement pour votre application ?"
         buttonText="Voir nos offres"
-        href="/abonnement-atlas-pro/12-mois/"
+        href="/abonnement-atlas-pro-12-mois/"
       />
       <Footer />
     </div>

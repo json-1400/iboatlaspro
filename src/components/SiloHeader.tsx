@@ -21,8 +21,8 @@ export function SiloHeader({
   description,
   primaryCtaText = "Choisir mon abonnement",
   primaryCtaHref = "#pricing",
-  secondaryCtaText = "Essai gratuit 24h",
-  secondaryCtaHref = "/abonnement-atlas-pro/essai-gratuit/",
+  secondaryCtaText = "Voir les offres 12 mois",
+  secondaryCtaHref = "/abonnement-atlas-pro-12-mois/",
 }: SiloHeaderProps) {
   return (
     <header className="relative pt-12 pb-16 md:pt-16 md:pb-24 glow-stadium border-b border-[#1A2A4A]/50">

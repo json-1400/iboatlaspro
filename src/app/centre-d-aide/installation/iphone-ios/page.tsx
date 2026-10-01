@@ -180,7 +180,7 @@ export default function IphoneIosInstallPage() {
                 Commandez votre abonnement 12 mois et recevez vos identifiants iOS-compatibles en moins de 15 minutes.
               </p>
               <Link
-                href="/abonnement-atlas-pro/12-mois/"
+                href="/abonnement-atlas-pro-12-mois/"
                 className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-bold text-white bg-[#1E7BFF] hover:bg-[#2D9CFF] glow-primary transition-all"
               >
                 <Smartphone className="w-4 h-4" />
@@ -201,7 +201,7 @@ export default function IphoneIosInstallPage() {
       <StickyCTA
         title="Abonnement Atlas Pro pour iPhone & iPad"
         buttonText="Commander l'accès iOS"
-        href="/abonnement-atlas-pro/12-mois/"
+        href="/abonnement-atlas-pro-12-mois/"
       />
       <Footer />
     </div>

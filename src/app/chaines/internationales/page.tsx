@@ -236,7 +236,7 @@ export default function ChainesInternationalesPage() {
               </p>
               <div className="pt-2">
                 <Link
-                  href="/abonnement-atlas-pro/12-mois/"
+                  href="/abonnement-atlas-pro-12-mois/"
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-sm sm:text-base font-bold text-white bg-[#1E7BFF] hover:bg-[#2D9CFF] glow-primary transition-all"
                 >
                   <span>Commander l&apos;abonnement 12 mois complet (39,99 €)</span>
@@ -251,7 +251,7 @@ export default function ChainesInternationalesPage() {
       <StickyCTA
         title="10 000 chaînes internationales en 4K sans coupure"
         buttonText="Commander (39,99 €)"
-        href="/abonnement-atlas-pro/12-mois/"
+        href="/abonnement-atlas-pro-12-mois/"
       />
       <Footer />
     </div>

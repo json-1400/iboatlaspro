@@ -109,7 +109,7 @@ export default function AtlasProOntvDownloadPage() {
       <StickyCTA
         title="Pas encore d'abonnement Atlas Pro ?"
         buttonText="Commander mon code 12 mois"
-        href="/abonnement-atlas-pro/12-mois/"
+        href="/abonnement-atlas-pro-12-mois/"
       />
       <Footer />
     </div>

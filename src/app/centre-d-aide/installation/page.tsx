@@ -86,7 +86,7 @@ export default function InstallationHubPage() {
           titleGradient="IPTV par Appareil"
           description="Sélectionnez votre type d'appareil pour accéder au tutoriel détaillé avec captures d'écran et conseils d'optimisation du débit 4K."
           primaryCtaText="Abonnement Atlas Pro"
-          primaryCtaHref="/abonnement-atlas-pro/12-mois/"
+          primaryCtaHref="/abonnement-atlas-pro-12-mois/"
           secondaryCtaText="Support technique"
           secondaryCtaHref="/centre-d-aide/"
         />
@@ -127,7 +127,7 @@ export default function InstallationHubPage() {
       <StickyCTA
         title="Besoin d'un abonnement 4K compatible ?"
         buttonText="Découvrir l'offre 12 mois"
-        href="/abonnement-atlas-pro/12-mois/"
+        href="/abonnement-atlas-pro-12-mois/"
       />
       <Footer />
     </div>

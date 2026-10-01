@@ -185,7 +185,7 @@ export default function PcWindowsInstallPage() {
                 Recevez vos identifiants Xtream Codes en moins de 15 minutes après commande.
               </p>
               <Link
-                href="/abonnement-atlas-pro/12-mois/"
+                href="/abonnement-atlas-pro-12-mois/"
                 className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-bold text-white bg-[#1E7BFF] hover:bg-[#2D9CFF] glow-primary transition-all"
               >
                 <span>Commander l&apos;abonnement 12 mois PC (39,99 €)</span>
@@ -205,7 +205,7 @@ export default function PcWindowsInstallPage() {
       <StickyCTA
         title="Atlas Pro sur PC Windows & Mac"
         buttonText="Commander l'accès"
-        href="/abonnement-atlas-pro/12-mois/"
+        href="/abonnement-atlas-pro-12-mois/"
       />
       <Footer />
     </div>

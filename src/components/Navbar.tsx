@@ -49,6 +49,7 @@ const NAV_MENU: readonly NavSection[] = [
   },
   {
     label: "Chaînes & VOD",
+    href: "/chaines/",
     items: [
       {
         title: "Catalogue Complet",
@@ -84,6 +85,7 @@ const NAV_MENU: readonly NavSection[] = [
   },
   {
     label: "Applications",
+    href: "/applications/",
     items: [
       {
         title: "Toutes les Applications",
@@ -113,6 +115,7 @@ const NAV_MENU: readonly NavSection[] = [
   },
   {
     label: "Centre d'Aide",
+    href: "/centre-d-aide/",
     items: [
       {
         title: "Centre d'Aide Hub",
@@ -147,49 +150,67 @@ export function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileExpandedSection, setMobileExpandedSection] = useState<string | null>(null);
   const navRef = useRef<HTMLDivElement>(null);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const closeTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const lastOpenTimeRef = useRef<number>(0);
 
-  const handleMouseEnter = (label: string) => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-      timeoutRef.current = null;
+  const openDropdown = (label: string) => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
     }
-    setActiveDropdown(label);
+    setActiveDropdown((current) => {
+      if (current !== label) {
+        lastOpenTimeRef.current = Date.now();
+      }
+      return label;
+    });
   };
 
-  const handleMouseLeave = () => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
+  const scheduleClose = () => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
     }
-    timeoutRef.current = setTimeout(() => {
+    closeTimerRef.current = setTimeout(() => {
       setActiveDropdown(null);
-    }, 180);
+    }, 220);
+  };
+
+  const cancelClose = () => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
   };
 
   const handleDropdownToggle = (label: string) => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-      timeoutRef.current = null;
-    }
-    setActiveDropdown((prev) => (prev === label ? null : label));
+    cancelClose();
+    setActiveDropdown((current) => {
+      if (current === label) {
+        // If it was just opened by hover less than 400ms ago, keep it open on click
+        const timeSinceOpen = Date.now() - lastOpenTimeRef.current;
+        if (timeSinceOpen < 400) {
+          return label;
+        }
+        return null;
+      }
+      lastOpenTimeRef.current = Date.now();
+      return label;
+    });
   };
 
   // Close dropdown on outside click
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (navRef.current && !navRef.current.contains(event.target as Node)) {
-        if (timeoutRef.current) {
-          clearTimeout(timeoutRef.current);
-          timeoutRef.current = null;
-        }
+        cancelClose();
         setActiveDropdown(null);
       }
     }
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("click", handleClickOutside);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
+      document.removeEventListener("click", handleClickOutside);
+      if (closeTimerRef.current) {
+        clearTimeout(closeTimerRef.current);
       }
     };
   }, []);
@@ -224,58 +245,64 @@ export function Navbar() {
               );
             }
 
+            // Determine safe alignment so menus never overflow the screen edges
+            const alignmentClasses =
+              section.label === "Centre d'Aide"
+                ? "right-0"
+                : section.label === "Chaînes & VOD"
+                ? "left-0"
+                : "left-1/2 -translate-x-1/2";
+
+            const customStyle =
+              section.label === "Applications"
+                ? { transform: "translateX(-50%)" }
+                : undefined;
+
             return (
               <div
                 key={section.label}
-                className="relative"
-                onMouseEnter={() => handleMouseEnter(section.label)}
-                onMouseLeave={handleMouseLeave}
+                className="relative group"
+                onMouseEnter={() => openDropdown(section.label)}
+                onMouseLeave={scheduleClose}
               >
-                {section.href ? (
-                  <Link
-                    href={section.href}
-                    className={`flex items-center gap-1.5 text-xs font-semibold px-3.5 py-1.5 rounded-full transition-colors ${
-                      isOpen
-                        ? "text-white bg-[#1E7BFF]/20"
-                        : "text-[#9FB0CC] hover:text-white hover:bg-white/5"
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleDropdownToggle(section.label);
+                  }}
+                  className={`flex items-center gap-1.5 text-xs font-semibold px-3.5 py-1.5 rounded-full transition-colors cursor-pointer select-none ${
+                    isOpen
+                      ? "text-white bg-[#1E7BFF]/20"
+                      : "text-[#9FB0CC] hover:text-white hover:bg-white/5 group-hover:text-white group-hover:bg-white/5"
+                  }`}
+                  aria-expanded={isOpen}
+                  aria-haspopup="true"
+                >
+                  <span>{section.label}</span>
+                  <ChevronDown
+                    className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                      isOpen ? "rotate-180 text-[#1E7BFF]" : "text-[#9FB0CC] group-hover:text-[#1E7BFF]"
                     }`}
-                  >
-                    <span>{section.label}</span>
-                    <ChevronDown
-                      className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                        isOpen ? "rotate-180 text-[#1E7BFF]" : "text-[#9FB0CC]"
-                      }`}
-                    />
-                  </Link>
-                ) : (
-                  <button
-                    type="button"
-                    onClick={() => handleDropdownToggle(section.label)}
-                    className={`flex items-center gap-1.5 text-xs font-semibold px-3.5 py-1.5 rounded-full transition-colors ${
-                      isOpen
-                        ? "text-white bg-[#1E7BFF]/20"
-                        : "text-[#9FB0CC] hover:text-white hover:bg-white/5"
-                    }`}
-                    aria-expanded={isOpen}
-                    aria-haspopup="true"
-                  >
-                    <span>{section.label}</span>
-                    <ChevronDown
-                      className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                        isOpen ? "rotate-180 text-[#1E7BFF]" : "text-[#9FB0CC]"
-                      }`}
-                    />
-                  </button>
-                )}
+                  />
+                </button>
 
-                {/* Dropdown Popover */}
-                {isOpen && section.items && (
+                {/* Dropdown Popover with all sub-links */}
+                {section.items && (
                   <div
-                    className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-80 z-50"
-                    onMouseEnter={() => handleMouseEnter(section.label)}
-                    onMouseLeave={handleMouseLeave}
+                    className={`absolute top-full mt-1.5 w-80 z-50 ${alignmentClasses} ${
+                      isOpen
+                        ? "block pointer-events-auto opacity-100"
+                        : "hidden group-hover:block pointer-events-auto"
+                    }`}
+                    style={customStyle}
+                    onMouseEnter={cancelClose}
+                    onMouseLeave={scheduleClose}
                   >
-                    <div className="bg-[#0A1428]/95 backdrop-blur-xl border border-[#1A2A4A] rounded-2xl p-2.5 shadow-2xl space-y-1">
+                    {/* Invisible hover bridge to eliminate gap flicker */}
+                    <div className="absolute -top-3 left-0 right-0 h-4 bg-transparent" />
+
+                    <div className="bg-[#0A1428] border border-[#1A2A4A] rounded-2xl p-2.5 shadow-2xl space-y-1">
                       {section.items.map((item) => {
                         const IconComp = item.icon;
                         return (
@@ -283,10 +310,7 @@ export function Navbar() {
                             key={item.title}
                             href={item.href}
                             onClick={() => {
-                              if (timeoutRef.current) {
-                                clearTimeout(timeoutRef.current);
-                                timeoutRef.current = null;
-                              }
+                              cancelClose();
                               setActiveDropdown(null);
                             }}
                             className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors group"

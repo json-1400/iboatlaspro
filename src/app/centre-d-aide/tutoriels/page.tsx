@@ -54,7 +54,7 @@ export default function TutorielsHubPage() {
           titleGradient="Configuration d'Applications"
           description="Apprenez à maîtriser vos applications IPTV favorites et à tirer le meilleur parti de votre abonnement 4K."
           primaryCtaText="Découvrir nos offres"
-          primaryCtaHref="/abonnement-atlas-pro/12-mois/"
+          primaryCtaHref="/abonnement-atlas-pro-12-mois/"
         />
 
         <section className="py-16 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">

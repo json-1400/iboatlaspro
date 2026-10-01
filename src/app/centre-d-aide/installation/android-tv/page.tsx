@@ -95,7 +95,7 @@ export default function AndroidTvInstallationGuide() {
                 Profitez d&apos;un flux 4K stable sur votre boîtier Android
               </h3>
               <Link
-                href="/abonnement-atlas-pro/12-mois/"
+                href="/abonnement-atlas-pro-12-mois/"
                 className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-bold text-white bg-[#1E7BFF] hover:bg-[#2D9CFF] glow-primary transition-all"
               >
                 <span>Commander mon abonnement 12 mois</span>

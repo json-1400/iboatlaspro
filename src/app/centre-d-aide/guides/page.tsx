@@ -54,7 +54,7 @@ export default function GuidesHubPage() {
           titleGradient="Comparatifs IPTV"
           description="Des dossiers clairs et impartiaux pour vous aider à comprendre la technologie IPTV et faire les meilleurs choix d'équipements."
           primaryCtaText="Découvrir nos abonnements"
-          primaryCtaHref="/abonnement-atlas-pro/12-mois/"
+          primaryCtaHref="/abonnement-atlas-pro-12-mois/"
         />
 
         <section className="py-16 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">

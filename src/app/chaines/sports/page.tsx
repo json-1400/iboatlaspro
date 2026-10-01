@@ -100,10 +100,10 @@ export default function ChainesSportPage() {
                   </div>
 
                   <Link
-                    href="/abonnement-atlas-pro/12-mois/"
+                    href="/abonnement-atlas-pro-12-mois/"
                     className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-xs sm:text-sm font-bold text-white bg-[#1E7BFF] hover:bg-[#2D9CFF] glow-primary transition-all flex-shrink-0"
                   >
-                    <span>Regarder en direct</span>
+                    <span>Découvrir l&apos;offre</span>
                     <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
@@ -119,10 +119,10 @@ export default function ChainesSportPage() {
               </p>
               <div className="pt-2">
                 <Link
-                  href="/abonnement-atlas-pro/12-mois/"
+                  href="/abonnement-atlas-pro-12-mois/"
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-sm sm:text-base font-bold text-white bg-[#1E7BFF] hover:bg-[#2D9CFF] glow-primary transition-all"
                 >
-                  <span>Regarder tous les matchs en direct avec l&apos;offre 12 mois (39,99 €)</span>
+                  <span>Activer le bouquet Sport avec l&apos;offre 12 mois (39,99 €)</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
@@ -132,9 +132,9 @@ export default function ChainesSportPage() {
       </main>
 
       <StickyCTA
-        title="Accédez à tous les matchs en direct"
+        title="Accédez à l'ensemble des chaînes sportives"
         buttonText="Abonnement 1 an (39,99 €)"
-        href="/abonnement-atlas-pro/12-mois/"
+        href="/abonnement-atlas-pro-12-mois/"
       />
       <Footer />
     </div>

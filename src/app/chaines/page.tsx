@@ -69,10 +69,10 @@ export default function ChainesHubPage() {
           titleGradient="10 000 Chaînes"
           titleSuffix="en Direct"
           description="Accédez au catalogue le plus vaste et complet du web. Toutes vos chaînes préférées de sport, de cinéma et d'actualités avec un flux sans coupure 24/7."
-          primaryCtaText="Tester nos chaînes"
-          primaryCtaHref="/abonnement-atlas-pro/essai-gratuit/"
-          secondaryCtaText="Voir les offres"
-          secondaryCtaHref="/abonnement-atlas-pro/12-mois/"
+          primaryCtaText="Découvrir l'offre 12 mois"
+          primaryCtaHref="/abonnement-atlas-pro-12-mois/"
+          secondaryCtaText="Toutes nos formules"
+          secondaryCtaHref="/#abonnement"
         />
 
         <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -117,7 +117,7 @@ export default function ChainesHubPage() {
       <StickyCTA
         title="Profitez de toutes ces chaînes en 4K"
         buttonText="Abonnement 12 mois (3,33 €/mois)"
-        href="/abonnement-atlas-pro/12-mois/"
+        href="/abonnement-atlas-pro-12-mois/"
       />
       <Footer />
     </div>

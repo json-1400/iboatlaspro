@@ -175,7 +175,7 @@ export async function sendSubscriptionExpirationAlert(
     ? `⚠️ [EXPIRÉ] Abonnement #${payload.orderId} (${payload.customerName})`
     : `⏳ [EXPIRATION J-${payload.daysRemaining}] Abonnement #${payload.orderId} (${payload.customerName})`;
 
-  const renewalUrl = "https://iboatlaspro.com/abonnement-atlas-pro/12-mois/";
+  const renewalUrl = "https://iboatlaspro.com/abonnement-atlas-pro-12-mois/";
 
   const emailHtml = `
     <div style="font-family: Arial, sans-serif; background: #040A17; color: #FFFFFF; padding: 24px; border-radius: 12px; max-width: 600px;">

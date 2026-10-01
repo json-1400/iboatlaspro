@@ -98,7 +98,7 @@ export default function IptvLegalPage() {
                 Profitez d&apos;une expérience IPTV sereine et haute définition
               </h3>
               <Link
-                href="/abonnement-atlas-pro/12-mois/"
+                href="/abonnement-atlas-pro-12-mois/"
                 className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-bold text-white bg-[#1E7BFF] hover:bg-[#2D9CFF] glow-primary transition-all"
               >
                 <span>Découvrir l&apos;offre Atlas Pro 12 Mois</span>

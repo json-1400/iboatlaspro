@@ -111,7 +111,7 @@ export default function CodeExpirePage() {
               </ul>
 
               <Link
-                href="/abonnement-atlas-pro/12-mois/"
+                href="/abonnement-atlas-pro-12-mois/"
                 className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-base font-bold text-white bg-[#1E7BFF] hover:bg-[#2D9CFF] glow-primary transition-all"
               >
                 <span>Renouveler votre abonnement Atlas Pro 12 mois</span>
@@ -131,7 +131,7 @@ export default function CodeExpirePage() {
       <StickyCTA
         title="Réactivation express de votre code expiré"
         buttonText="Renouveler maintenant"
-        href="/abonnement-atlas-pro/12-mois/"
+        href="/abonnement-atlas-pro-12-mois/"
       />
       <Footer />
     </div>

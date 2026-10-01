@@ -98,7 +98,7 @@ export default function MagBoxInstallationGuide() {
                 Activez votre décodeur MAG dès maintenant
               </h3>
               <Link
-                href="/abonnement-atlas-pro/12-mois/"
+                href="/abonnement-atlas-pro-12-mois/"
                 className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-bold text-white bg-[#1E7BFF] hover:bg-[#2D9CFF] glow-primary transition-all"
               >
                 <span>Commander un abonnement MAG 12 mois</span>
