@@ -28,6 +28,14 @@ export const metadata: Metadata = {
     siteName: "iboatlaspro",
     locale: "fr_FR",
     type: "website",
+    images: [
+      {
+        url: "https://iboatlaspro.com/images/hero-devices.jpg",
+        width: 1200,
+        height: 630,
+        alt: "iboatlaspro — Abonnement IPTV Premium 4K sans coupure",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
