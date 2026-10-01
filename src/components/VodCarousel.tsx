@@ -99,6 +99,9 @@ export function VodCarousel() {
             Profitez des dernières sorties cinéma, classiques intemporels et
             séries exclusives en qualité 4K Ultra HD sans aucune interruption.
           </p>
+          <p className="mt-1 text-xs text-[#9FB0CC]/60 italic">
+            * Visuels et titres illustratifs — le catalogue réel contient +50 000 œuvres disponibles après activation.
+          </p>
         </div>
 
         {/* Manual Navigation Controls */}
