@@ -62,6 +62,7 @@ const jsonLdGraph = {
       },
       contactPoint: {
         "@type": "ContactPoint",
+        telephone: "+212715214002",
         contactType: "customer service",
         availableLanguage: ["French", "English"],
       },
