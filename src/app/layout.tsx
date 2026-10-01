@@ -17,7 +17,6 @@ export const metadata: Metadata = {
     canonical: "https://iboatlaspro.com",
     languages: {
       "fr-FR": "https://iboatlaspro.com",
-      "en-US": "https://iboatlaspro.com/en",
       "x-default": "https://iboatlaspro.com",
     },
   },
