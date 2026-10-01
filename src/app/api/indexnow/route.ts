@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { getAllSubscriptionPlans } from "@/data/subscription-plans";
 
+export const dynamic = "force-dynamic";
+
 const INDEXNOW_KEY = "e4b2d8f9c1a34b2e8d7f6a5c3b1e9d2f";
 const HOST = "iboatlaspro.com";
 const BASE_URL = `https://${HOST}`;

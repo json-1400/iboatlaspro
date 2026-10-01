@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { persistTicketToDatabase } from "@/lib/supabase/client";
 
+export const dynamic = "force-dynamic";
+
 const ContactSchema = z.object({
   name: z.string().min(2, "Le nom doit comporter au moins 2 caractères"),
   email: z.string().email("Veuillez saisir une adresse e-mail valide"),

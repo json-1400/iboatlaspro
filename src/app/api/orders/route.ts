@@ -9,6 +9,8 @@ import { sendAdminNewOrderAlert } from "@/lib/notifications";
 import { persistOrderToDatabase } from "@/lib/supabase/client";
 import { checkRateLimit } from "@/lib/rate-limit";
 
+export const dynamic = "force-dynamic";
+
 export async function POST(req: NextRequest) {
   try {
     // 1. IP Rate Limiting (5 orders per 10 minutes)

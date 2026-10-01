@@ -6,6 +6,8 @@ import {
 import { sendSubscriptionExpirationAlert } from "@/lib/notifications";
 import { fetchExpiringOrdersFromDatabase } from "@/lib/supabase/client";
 
+export const dynamic = "force-dynamic";
+
 // Demonstration subscription database registry for expiration tracking
 interface StoredSubscription {
   readonly id: string;
