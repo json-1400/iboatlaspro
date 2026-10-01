@@ -125,8 +125,7 @@ export default function PolitiqueRemboursementPage() {
                   className="text-[#1E7BFF] hover:underline"
                 >
                   support@iboatlaspro.com
-                </a>{" "}
-                — WhatsApp : +212 715 214 002
+                </a>
               </p>
             </section>
           </div>

@@ -146,48 +146,53 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileExpandedSection, setMobileExpandedSection] = useState<string | null>(null);
-  const [selectedLang, setSelectedLang] = useState<"FR" | "EN">("FR");
-  const [langDropdownOpen, setLangDropdownOpen] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
-  const langRef = useRef<HTMLDivElement>(null);
-  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  // Close dropdown on outside click
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      const target = event.target as Node;
-      if (navRef.current && !navRef.current.contains(target)) {
-        setActiveDropdown(null);
-      }
-      if (langRef.current && !langRef.current.contains(target)) {
-        setLangDropdownOpen(false);
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      if (closeTimerRef.current) {
-        clearTimeout(closeTimerRef.current);
-      }
-    };
-  }, []);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleMouseEnter = (label: string) => {
-    if (closeTimerRef.current) {
-      clearTimeout(closeTimerRef.current);
-      closeTimerRef.current = null;
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
     }
     setActiveDropdown(label);
   };
 
   const handleMouseLeave = () => {
-    if (closeTimerRef.current) {
-      clearTimeout(closeTimerRef.current);
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
     }
-    closeTimerRef.current = setTimeout(() => {
+    timeoutRef.current = setTimeout(() => {
       setActiveDropdown(null);
     }, 180);
   };
+
+  const handleDropdownToggle = (label: string) => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+      timeoutRef.current = null;
+    }
+    setActiveDropdown((prev) => (prev === label ? null : label));
+  };
+
+  // Close dropdown on outside click
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        if (timeoutRef.current) {
+          clearTimeout(timeoutRef.current);
+          timeoutRef.current = null;
+        }
+        setActiveDropdown(null);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-[#040A17]/90 border-b border-[#1A2A4A]/60 transition-all duration-200">
@@ -231,7 +236,7 @@ export function Navbar() {
                     href={section.href}
                     className={`flex items-center gap-1.5 text-xs font-semibold px-3.5 py-1.5 rounded-full transition-colors ${
                       isOpen
-                        ? "text-white bg-[#1E7BFF]/15"
+                        ? "text-white bg-[#1E7BFF]/20"
                         : "text-[#9FB0CC] hover:text-white hover:bg-white/5"
                     }`}
                   >
@@ -245,14 +250,10 @@ export function Navbar() {
                 ) : (
                   <button
                     type="button"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
-                      setActiveDropdown((prev) => (prev === section.label ? null : section.label));
-                    }}
+                    onClick={() => handleDropdownToggle(section.label)}
                     className={`flex items-center gap-1.5 text-xs font-semibold px-3.5 py-1.5 rounded-full transition-colors ${
                       isOpen
-                        ? "text-white bg-[#1E7BFF]/15"
+                        ? "text-white bg-[#1E7BFF]/20"
                         : "text-[#9FB0CC] hover:text-white hover:bg-white/5"
                     }`}
                     aria-expanded={isOpen}
@@ -270,7 +271,7 @@ export function Navbar() {
                 {/* Dropdown Popover */}
                 {isOpen && section.items && (
                   <div
-                    className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-80 z-50"
+                    className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-80 z-50"
                     onMouseEnter={() => handleMouseEnter(section.label)}
                     onMouseLeave={handleMouseLeave}
                   >
@@ -281,7 +282,13 @@ export function Navbar() {
                           <Link
                             key={item.title}
                             href={item.href}
-                            onClick={() => setActiveDropdown(null)}
+                            onClick={() => {
+                              if (timeoutRef.current) {
+                                clearTimeout(timeoutRef.current);
+                                timeoutRef.current = null;
+                              }
+                              setActiveDropdown(null);
+                            }}
                             className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/5 transition-colors group"
                           >
                             <div className="w-8 h-8 rounded-lg bg-[#1E7BFF]/10 text-[#1E7BFF] flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-[#1E7BFF] group-hover:text-white transition-colors">
@@ -313,53 +320,8 @@ export function Navbar() {
           })}
         </nav>
 
-        {/* Right: Language Dropdown + Pill CTA Button */}
+        {/* Right: Pill CTA Button */}
         <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
-          {/* Language Selector */}
-          <div ref={langRef} className="relative">
-            <button
-              type="button"
-              onClick={() => setLangDropdownOpen((prev) => !prev)}
-              className="flex items-center gap-1.5 text-xs font-semibold text-[#9FB0CC] hover:text-white px-3 py-2 rounded-full border border-[#1A2A4A] hover:border-[#1E7BFF]/50 bg-[#0A1428]/80 transition-colors"
-              aria-expanded={langDropdownOpen}
-              aria-label="Changer de langue"
-            >
-              <Globe className="w-3.5 h-3.5 text-[#1E7BFF]" />
-              <span>{selectedLang}</span>
-              <ChevronDown className="w-3 h-3 text-[#9FB0CC]" />
-            </button>
-
-            {langDropdownOpen && (
-              <div className="absolute right-0 mt-2 w-28 bg-[#0A1428] border border-[#1A2A4A] rounded-xl py-1 shadow-xl z-50">
-                <button
-                  type="button"
-                  onClick={() => {
-                    setSelectedLang("FR");
-                    setLangDropdownOpen(false);
-                  }}
-                  className={`w-full text-left px-3 py-2 text-xs font-medium hover:bg-[#1A2A4A]/50 transition-colors ${
-                    selectedLang === "FR" ? "text-[#1E7BFF]" : "text-white"
-                  }`}
-                >
-                  Français (FR)
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setSelectedLang("EN");
-                    setLangDropdownOpen(false);
-                  }}
-                  className={`w-full text-left px-3 py-2 text-xs font-medium hover:bg-[#1A2A4A]/50 transition-colors ${
-                    selectedLang === "EN" ? "text-[#1E7BFF]" : "text-white"
-                  }`}
-                >
-                  English (EN)
-                </button>
-              </div>
-            )}
-          </div>
-
-          {/* Primary CTA button */}
           <Link
             href="/abonnement-atlas-pro-12-mois/"
             className="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-xs font-bold text-white bg-[#1E7BFF] hover:bg-[#2D9CFF] glow-primary transition-all duration-200 active:scale-[0.98]"
@@ -452,22 +414,11 @@ export function Navbar() {
             })}
           </nav>
 
-          <div className="pt-3 border-t border-[#1A2A4A] flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <span className="text-xs text-[#9FB0CC]">Langue:</span>
-              <button
-                type="button"
-                onClick={() => setSelectedLang(selectedLang === "FR" ? "EN" : "FR")}
-                className="text-xs font-bold text-white px-2.5 py-1 rounded bg-[#0A1428] border border-[#1A2A4A]"
-              >
-                {selectedLang}
-              </button>
-            </div>
-
+          <div className="pt-3 border-t border-[#1A2A4A] flex items-center justify-center">
             <Link
-              href="/abonnement-atlas-pro/12-mois/"
+              href="/abonnement-atlas-pro-12-mois/"
               onClick={() => setMobileMenuOpen(false)}
-              className="px-5 py-2 text-xs font-bold text-white bg-[#1E7BFF] rounded-full"
+              className="w-full text-center py-2.5 text-xs font-bold text-white bg-[#1E7BFF] hover:bg-[#2D9CFF] rounded-full"
             >
               Commander maintenant
             </Link>

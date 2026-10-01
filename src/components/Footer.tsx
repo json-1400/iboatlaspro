@@ -283,14 +283,6 @@ export function Footer() {
             <ul className="space-y-2 text-xs">
               <li>
                 <Link
-                  href="/centre-d-aide/guides/iptv-legal-ou-illegal/"
-                  className="text-[#9FB0CC] hover:text-white transition-colors"
-                >
-                  Légalité IPTV en France (Dossier)
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/conditions-utilisation/"
                   className="text-[#9FB0CC] hover:text-white transition-colors"
                 >
