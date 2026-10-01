@@ -8,7 +8,6 @@ import { PricingSection } from "@/components/PricingSection";
 import { MultiroomBanner } from "@/components/MultiroomBanner";
 import { InfrastructureSection } from "@/components/InfrastructureSection";
 import { HowToStepsSection } from "@/components/HowToStepsSection";
-import { Testimonials } from "@/components/Testimonials";
 import { StatsBand } from "@/components/StatsBand";
 import { CtaFaqSection } from "@/components/CtaFaqSection";
 import { Footer } from "@/components/Footer";
@@ -133,9 +132,6 @@ export default function HomePage() {
 
         {/* 3-Step Activation Guide */}
         <HowToStepsSection />
-
-        {/* Verified Customer Testimonials */}
-        <Testimonials />
 
         {/* Key Performance Stats Band */}
         <StatsBand />

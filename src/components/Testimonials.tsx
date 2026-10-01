@@ -80,6 +80,9 @@ export function Testimonials() {
           </div>
         </div>
       </div>
+      <p className="mt-6 text-center text-[10px] text-[#9FB0CC]/50">
+        Témoignages clients collectés via WhatsApp et e-mail — non vérifiés par un tiers.
+      </p>
     </section>
   );
 }
