@@ -103,7 +103,7 @@ export default async function DynamicPlanPage({ params }: PageProps) {
           url: `https://iboatlaspro.com/${plan.slug}/`,
           priceCurrency: "EUR",
           price: plan.priceNumeric.toFixed(2),
-          priceValidUntil: "2026-12-31",
+          priceValidUntil: new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split("T")[0],
           availability: "https://schema.org/InStock",
           itemCondition: "https://schema.org/NewCondition",
       },
