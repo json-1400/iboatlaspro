@@ -149,20 +149,45 @@ export function Navbar() {
   const [selectedLang, setSelectedLang] = useState<"FR" | "EN">("FR");
   const [langDropdownOpen, setLangDropdownOpen] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
+  const langRef = useRef<HTMLDivElement>(null);
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Close dropdown on outside click
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+      const target = event.target as Node;
+      if (navRef.current && !navRef.current.contains(target)) {
         setActiveDropdown(null);
+      }
+      if (langRef.current && !langRef.current.contains(target)) {
         setLangDropdownOpen(false);
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      if (closeTimerRef.current) {
+        clearTimeout(closeTimerRef.current);
+      }
     };
   }, []);
+
+  const handleMouseEnter = (label: string) => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+    setActiveDropdown(label);
+  };
+
+  const handleMouseLeave = () => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+    }
+    closeTimerRef.current = setTimeout(() => {
+      setActiveDropdown(null);
+    }, 180);
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-[#040A17]/90 border-b border-[#1A2A4A]/60 transition-all duration-200">
@@ -198,8 +223,8 @@ export function Navbar() {
               <div
                 key={section.label}
                 className="relative"
-                onMouseEnter={() => setActiveDropdown(section.label)}
-                onMouseLeave={() => setActiveDropdown(null)}
+                onMouseEnter={() => handleMouseEnter(section.label)}
+                onMouseLeave={handleMouseLeave}
               >
                 {section.href ? (
                   <Link
@@ -220,9 +245,11 @@ export function Navbar() {
                 ) : (
                   <button
                     type="button"
-                    onClick={() =>
-                      setActiveDropdown(isOpen ? null : section.label)
-                    }
+                    onClick={(e) => {
+                      e.preventDefault();
+                      if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+                      setActiveDropdown((prev) => (prev === section.label ? null : section.label));
+                    }}
                     className={`flex items-center gap-1.5 text-xs font-semibold px-3.5 py-1.5 rounded-full transition-colors ${
                       isOpen
                         ? "text-white bg-[#1E7BFF]/15"
@@ -242,7 +269,11 @@ export function Navbar() {
 
                 {/* Dropdown Popover */}
                 {isOpen && section.items && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-80 z-50">
+                  <div
+                    className="absolute top-full left-1/2 -translate-x-1/2 pt-3 w-80 z-50"
+                    onMouseEnter={() => handleMouseEnter(section.label)}
+                    onMouseLeave={handleMouseLeave}
+                  >
                     <div className="bg-[#0A1428]/95 backdrop-blur-xl border border-[#1A2A4A] rounded-2xl p-2.5 shadow-2xl space-y-1">
                       {section.items.map((item) => {
                         const IconComp = item.icon;
@@ -285,7 +316,7 @@ export function Navbar() {
         {/* Right: Language Dropdown + Pill CTA Button */}
         <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
           {/* Language Selector */}
-          <div className="relative">
+          <div ref={langRef} className="relative">
             <button
               type="button"
               onClick={() => setLangDropdownOpen((prev) => !prev)}
