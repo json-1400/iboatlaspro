@@ -21,6 +21,10 @@ export default function robots(): MetadataRoute.Robots {
           "/commander/", // Checkout flow
           "/merci/",     // Post-purchase order confirmation
           "/api/",       // Server API routes
+          "/downloads/", // Prevent crawler indexing of any download directories
+          "/scratch/",   // Scratch / temporary paths
+          "/*.apk$",     // Block direct indexing of any APK binary files
+          "/*.exe$",     // Block direct indexing of any executable binaries
         ],
       },
       {
