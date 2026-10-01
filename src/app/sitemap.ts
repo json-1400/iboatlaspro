@@ -14,7 +14,7 @@ interface StaticRouteDef {
 
 const STATIC_ROUTES: readonly StaticRouteDef[] = [
   // Homepage
-  { path: "", changeFrequency: "daily", priority: 1.0 },
+  { path: "/", changeFrequency: "daily", priority: 1.0 },
 
   // Applications
   { path: "/applications/", changeFrequency: "weekly", priority: 0.90 },
