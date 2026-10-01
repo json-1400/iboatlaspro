@@ -6,7 +6,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { StickyCTA } from "@/components/StickyCTA";
 import { constructMetadata } from "@/lib/seo";
 import {
-  Download,
+  BookOpen,
   ShieldCheck,
   Zap,
   ArrowRight,
@@ -18,9 +18,9 @@ import {
 
 export function generateMetadata(): Metadata {
   return constructMetadata({
-    title: "Télécharger IBO Player Pro APK Android TV : Code Downloader (2026)",
+    title: "Guide Installation IBO Player Pro : Code Downloader (2026)",
     description:
-      "Téléchargement officiel IBO Player Pro APK pour Android TV et Fire Stick. Utilisez le code Downloader 492015 pour une installation rapide et sécurisée en 4K.",
+      "Guide d'installation officiel IBO Player Pro pour Android TV et Fire Stick. Utilisez le code Downloader 492015 pour une configuration rapide et sécurisée en 4K.",
     path: "/applications/atlas-pro-ibo/",
   });
 }
@@ -28,7 +28,7 @@ export function generateMetadata(): Metadata {
 export default function AtlasProIboDownloadPage() {
   const breadcrumbItems = [
     { label: "Applications", href: "/applications/" },
-    { label: "IBO Player Pro APK", href: "/applications/atlas-pro-ibo/" },
+    { label: "Guide IBO Player Pro", href: "/applications/atlas-pro-ibo/" },
   ];
 
   const stepsDownloader = [
@@ -128,15 +128,15 @@ export default function AtlasProIboDownloadPage() {
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-2xl mx-auto mb-10">
               <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold text-white bg-[#0A1428] border border-[#1E7BFF]">
-                <Download className="w-3.5 h-3.5 text-[#1E7BFF]" />
-                TÉLÉCHARGEMENT DIRECT OFFICIEL
+                <BookOpen className="w-3.5 h-3.5 text-[#1E7BFF]" />
+                GUIDE OFFICIEL DE CONFIGURATION
               </span>
               <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight leading-tight">
-                Télécharger <span className="gradient-text-blue">IBO Player Pro APK</span> Android TV & Fire Stick
+                Installer <span className="gradient-text-blue">IBO Player Pro</span> sur TV & Fire Stick
               </h1>
               <p className="mt-3 text-sm sm:text-base text-[#9FB0CC] leading-relaxed">
-                Installez la version officielle et sécurisée d&apos;IBO Player Pro APK sur votre Amazon Fire TV Stick,
-                Google TV ou Box Android TV grâce à notre code Downloader direct.
+                Configurez la version officielle d&apos;IBO Player Pro sur votre Amazon Fire TV Stick,
+                Google TV ou Box Android TV grâce à notre code Downloader vérifié.
               </p>
             </div>
 
@@ -150,7 +150,18 @@ export default function AtlasProIboDownloadPage() {
                   492015
                 </div>
                 <p className="text-xs sm:text-sm text-[#9FB0CC]">
-                  Saisissez ce code à 6 chiffres dans l&apos;application Downloader pour démarrer le téléchargement immédiat.
+                  Saisissez ce code à 6 chiffres dans l&apos;application Downloader pour lancer la configuration.
+                </p>
+              </div>
+
+              {/* Disclaimer Non-Hébergement */}
+              <div className="p-4 rounded-xl bg-[#060E1F]/80 border border-[#1A2A4A] text-left text-xs text-[#9FB0CC] space-y-1.5">
+                <p className="font-semibold text-white flex items-center gap-1.5">
+                  <ShieldCheck className="w-4 h-4 text-emerald-400" />
+                  Transparence & Sécurité
+                </p>
+                <p>
+                  Ce site ne stocke ni ne distribue aucun binaire d&apos;application (.apk). L&apos;accès s&apos;effectue en toute sécurité via l&apos;application officielle Downloader (disponible sur Amazon Appstore et Google Play) à l&apos;aide du code vérifié <strong>492015</strong>.
                 </p>
               </div>
 
@@ -158,7 +169,7 @@ export default function AtlasProIboDownloadPage() {
               <div className="flex flex-wrap items-center justify-center gap-6 text-xs text-[#9FB0CC] pt-2">
                 <span className="flex items-center gap-1.5">
                   <ShieldCheck className="w-4 h-4 text-[#22C55E]" />
-                  <span>Version officielle v2.8.0 vérifiée sans virus</span>
+                  <span>Version officielle v2.8.0 vérifiée</span>
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Zap className="w-4 h-4 text-[#1E7BFF]" />

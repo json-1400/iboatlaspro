@@ -5,7 +5,7 @@ import { Footer } from "@/components/Footer";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { StickyCTA } from "@/components/StickyCTA";
 import {
-  Download,
+  BookOpen,
   ShieldCheck,
   Zap,
   ArrowRight,
@@ -18,18 +18,18 @@ import {
 
 export function generateMetadata(): Metadata {
   return {
-    title: "Télécharger Atlas Pro Max APK (v5.0.1) : Version Officielle 2026",
+    title: "Guide Installation Atlas Pro Max (v5.0.1) : Code Downloader Officiel 2026",
     description:
-      "Téléchargement direct de l'APK officiel Atlas Pro Max v5.0.1 pour Android TV, Fire TV Stick, Box et mobile. Code Downloader sécurisé, zéro virus et guide pas-à-pas.",
+      "Guide pas-à-pas pour installer Atlas Pro Max v5.0.1 sur Android TV, Fire TV Stick et Box via le code Downloader 614920. Tutoriel sécurisé sans virus.",
     keywords:
-      "atlas pro max, atlas pro max apk, atlas pro max 5.0 1 apk, telecharger atlas pro max, atlas pro max 2026, apk atlas pro max, atlas pro max download, application atlas pro max",
+      "atlas pro max, code downloader atlas pro max, installer atlas pro max, tutoriel atlas pro max, application atlas pro max 2026",
     alternates: {
       canonical: "https://iboatlaspro.com/applications/atlas-pro-max/",
     },
     openGraph: {
-      title: "Télécharger Atlas Pro Max APK (v5.0.1) — Version Officielle 2026",
+      title: "Guide Installation Atlas Pro Max (v5.0.1) — Code Downloader Officiel 2026",
       description:
-        "Lecteur 4K ultra-rapide pour abonnés Atlas Pro. Téléchargez l'APK v5.0.1 ou installez via l'application Downloader.",
+        "Tutoriel de configuration rapide pour abonnés Atlas Pro. Installez facilement Atlas Pro Max v5.0.1 avec l'application Downloader.",
       url: "https://iboatlaspro.com/applications/atlas-pro-max/",
       type: "website",
       locale: "fr_FR",
@@ -47,16 +47,10 @@ const maxFaqSchema = {
       operatingSystem: "Android, Android TV, FireOS",
       applicationCategory: "MultimediaApplication",
       softwareVersion: "5.0.1 Stable 2026",
-      fileSize: "68 MB",
       offers: {
         "@type": "Offer",
         price: "0",
         priceCurrency: "EUR",
-      },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.9",
-        reviewCount: "860",
       },
     },
     {
@@ -84,7 +78,7 @@ const maxFaqSchema = {
           name: "L'application Atlas Pro Max est-elle gratuite ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Oui, le téléchargement de l'APK Atlas Pro Max est 100% gratuit. Pour accéder aux flux TV et VOD, vous devez renseigner votre code d'abonnement officiel Atlas Pro 12 mois.",
+            text: "Oui, l'installation de l'application Atlas Pro Max est gratuite. Pour accéder aux flux TV et VOD, vous devez renseigner votre code d'abonnement officiel Atlas Pro 12 mois.",
           },
         },
       ],
@@ -96,7 +90,7 @@ export default function AtlasProMaxDownloadPage() {
   const breadcrumbItems = [
     { label: "Accueil", href: "/" },
     { label: "Applications", href: "/applications/" },
-    { label: "Atlas Pro Max APK", href: "/applications/atlas-pro-max/" },
+    { label: "Guide Atlas Pro Max", href: "/applications/atlas-pro-max/" },
   ];
 
   const features = [
@@ -131,14 +125,14 @@ export default function AtlasProMaxDownloadPage() {
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-2xl mx-auto mb-10">
               <span className="px-3.5 py-1.5 rounded-full text-xs font-bold text-white bg-[#0A1428] border border-[#1E7BFF] shadow-[0_0_20px_rgba(30,123,255,0.3)]">
-                APPLICATION OFFICIELLE 2026
+                GUIDE OFFICIEL DE CONFIGURATION
               </span>
               <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
-                Télécharger <span className="text-[#1E7BFF]">Atlas Pro Max</span> APK
+                Installer <span className="text-[#1E7BFF]">Atlas Pro Max</span> sur TV & Box
               </h1>
               <p className="mt-3 text-sm sm:text-base text-[#9FB0CC] leading-relaxed">
-                La dernière version <strong className="text-white">Atlas Pro Max 5.0.1 APK</strong> conçue
-                pour les téléviseurs et boîtiers Android. Performances 4K maximales, EPG réactif et zapping instantané.
+                Configurez facilement l&apos;application <strong className="text-white">Atlas Pro Max (v5.0.1)</strong> sur
+                vos téléviseurs et boîtiers Android TV & Fire TV Stick grâce au code Downloader sécurisé.
               </p>
             </div>
 
@@ -156,30 +150,28 @@ export default function AtlasProMaxDownloadPage() {
                 </p>
               </div>
 
-              {/* Direct APK Link */}
-              <div className="text-center">
+              {/* Guide CTA & Disclaimer */}
+              <div className="text-center space-y-4">
                 <a
-                  href="/scratch/atlas-pro-max-5.0.1.apk"
-                  download
-                  className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl text-base font-bold text-white bg-[#1E7BFF] hover:bg-[#2D9CFF] shadow-[0_0_30px_rgba(30,123,255,0.4)] transition-all transform hover:-translate-y-0.5"
+                  href="#guide-installation"
+                  className="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl text-base font-bold text-white bg-[#1E7BFF] hover:bg-[#2D9CFF] shadow-[0_0_30px_rgba(30,123,255,0.4)] transition-all"
                 >
-                  <Download className="w-5 h-5" />
-                  <span>Téléchargement direct APK v5.0.1 (68 Mo)</span>
+                  <BookOpen className="w-5 h-5" />
+                  <span>Consulter le guide pas-à-pas</span>
                 </a>
-                <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-[#9FB0CC] mt-3">
-                  <span className="flex items-center gap-1">
+                <div className="p-4 rounded-xl bg-[#060E1F]/80 border border-[#1A2A4A] text-left text-xs text-[#9FB0CC] space-y-1.5">
+                  <p className="font-semibold text-white flex items-center gap-1.5">
                     <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                    Certifié sans virus (SHA-256 vérifié)
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <Zap className="w-4 h-4 text-[#1E7BFF]" />
-                    Compatible Android 7.0 à 14+
-                  </span>
+                    Transparence & Sécurité
+                  </p>
+                  <p>
+                    Ce site ne stocke ni ne distribue directement aucun fichier exécutable (.apk). L&apos;accès s&apos;effectue de manière autonome et sécurisée depuis l&apos;application officielle Downloader (disponible sur Amazon Appstore et Google Play) via le code <strong>614920</strong>.
+                  </p>
                 </div>
               </div>
 
               {/* Install Instructions */}
-              <div className="pt-6 border-t border-[#1A2A4A] space-y-3">
+              <div id="guide-installation" className="pt-6 border-t border-[#1A2A4A] space-y-3">
                 <h2 className="text-lg font-bold text-white">
                   Guide d&apos;installation étape par étape :
                 </h2>

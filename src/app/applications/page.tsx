@@ -5,13 +5,13 @@ import { Footer } from "@/components/Footer";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { SiloHeader } from "@/components/SiloHeader";
 import { StickyCTA } from "@/components/StickyCTA";
-import { Download, ArrowRight, ShieldCheck, Smartphone, Tv } from "lucide-react";
+import { BookOpen, ArrowRight, ShieldCheck, Smartphone, Tv } from "lucide-react";
 
 export function generateMetadata(): Metadata {
   return {
-    title: "Télécharger Applications IPTV & APK Officiels : Atlas Pro, IBO, Smarters",
+    title: "Applications Compatibles & Guides d'Installation : Atlas Pro, IBO, Smarters",
     description:
-      "Téléchargez les dernières versions officielles APK pour Atlas Pro ONTV, Atlas Pro IBO et IPTV Smarters Pro. Codes Downloader directs pour Fire TV Stick et Android.",
+      "Guides d'installation et codes Downloader vérifiés pour Atlas Pro ONTV, Atlas Pro IBO et IPTV Smarters Pro sur Fire TV Stick, Android TV et Smart TV.",
     alternates: {
       canonical: "https://iboatlaspro.com/applications/",
     },
@@ -20,7 +20,7 @@ export function generateMetadata(): Metadata {
 
 export default function ApplicationsHubPage() {
   const breadcrumbItems = [
-    { label: "Applications & Téléchargements", href: "/applications/" },
+    { label: "Applications & Guides", href: "/applications/" },
   ];
 
   const apps = [
@@ -76,18 +76,28 @@ export default function ApplicationsHubPage() {
         </div>
 
         <SiloHeader
-          badge="CENTRE DE TÉLÉCHARGEMENT OFFICIEL"
+          badge="GUIDES D'INSTALLATION & CONFIGURATION"
           titlePrefix="Applications IPTV &"
-          titleGradient="Fichiers APK"
-          titleSuffix="Sécurisés"
-          description="Accédez aux fichiers d'installation officiels vérifiés et sans virus pour tous vos appareils connectés. Utilisez nos codes Downloader pour une installation express."
+          titleGradient="Guides d'Accès"
+          titleSuffix="Officiels"
+          description="Consultez nos tutoriels de configuration étape par étape et codes Downloader pour vos téléviseurs et boîtiers connectés. Aucun téléchargement direct de fichier n'est requis."
           primaryCtaText="Voir les codes Downloader"
           primaryCtaHref="#apps-grid"
-          secondaryCtaText="Guides d'installation"
+          secondaryCtaText="Centre de tutoriels"
           secondaryCtaHref="/centre-d-aide/installation/"
         />
 
-        <section id="apps-grid" className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Disclaimer non-hébergement */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 mb-4">
+          <div className="p-4 sm:p-5 rounded-2xl bg-[#0A1428] border border-[#1A2A4A] flex items-start gap-3.5 text-xs sm:text-sm text-[#9FB0CC]">
+            <ShieldCheck className="w-5 h-5 text-[#22C55E] flex-shrink-0 mt-0.5" />
+            <p>
+              <strong className="text-white">Note d&apos;information :</strong> Ce site ne propose aucun hébergement ni distribution directe de fichiers exécutables (.apk). Nous fournissons exclusivement des guides d&apos;assistance technique et des codes d&apos;accès compatibles avec l&apos;application officielle Downloader (AFTVnews) et les boutiques d&apos;applications certifiées.
+            </p>
+          </div>
+        </div>
+
+        <section id="apps-grid" className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {apps.map((app) => (
               <div
@@ -129,8 +139,8 @@ export default function ApplicationsHubPage() {
                   href={app.href}
                   className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-xs sm:text-sm font-bold text-white bg-[#1E7BFF] hover:bg-[#2D9CFF] glow-primary transition-all"
                 >
-                  <Download className="w-4 h-4" />
-                  <span>Télécharger la page officielle</span>
+                  <BookOpen className="w-4 h-4" />
+                  <span>Consulter le guide d&apos;installation</span>
                 </Link>
               </div>
             ))}
