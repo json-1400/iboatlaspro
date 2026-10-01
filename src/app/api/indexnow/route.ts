@@ -40,9 +40,9 @@ const CORE_CANONICAL_PATHS: readonly string[] = [
   "/centre-d-aide/guides/",
   "/centre-d-aide/guides/iptv-legal-ou-illegal/",
   "/centre-d-aide/guides/comparatif-box-streaming/",
-  "/mentions-legales/",
+  "/conditions-utilisation/",
   "/confidentialite/",
-  "/cgv/",
+  "/politique-remboursement/",
 ];
 
 function getAllCanonicalUrls(): string[] {
