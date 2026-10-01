@@ -150,7 +150,7 @@ export function MerciClientContent() {
       {/* Useful Next Steps / Applications Downloads */}
       <div className="mt-12">
         <h2 className="text-lg font-bold text-white mb-4 text-center">
-          En attendant l&apos;activation, installez votre application
+          En attendant l&apos;activation, préparez votre équipement avec nos guides
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <Link
@@ -163,11 +163,11 @@ export function MerciClientContent() {
                 <span>Atlas Pro ONTV</span>
               </div>
               <p className="text-xs text-[#9FB0CC]">
-                L&apos;application officielle optimisée Android TV, Fire Stick et Box.
+                L&apos;application optimisée pour Android TV, Fire Stick et Box.
               </p>
             </div>
             <div className="mt-4 text-xs font-semibold text-white group-hover:text-[#1E7BFF] flex items-center gap-1">
-              <span>Télécharger l&apos;APK</span>
+              <span>Voir le guide</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </div>
           </Link>

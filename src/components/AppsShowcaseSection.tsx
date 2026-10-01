@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Download, Tv, Smartphone, ArrowRight, ShieldCheck, Sparkles } from "lucide-react";
+import { BookOpen, Tv, Smartphone, ArrowRight, ShieldCheck, Sparkles } from "lucide-react";
 
 export function AppsShowcaseSection() {
   const apps = [
@@ -49,7 +49,7 @@ export function AppsShowcaseSection() {
           </h2>
           <p className="mt-3 text-sm sm:text-base text-[#9FB0CC] leading-relaxed">
             Profitez de votre abonnement Atlas Pro sur votre application favorite.
-            Téléchargez l&apos;APK officiel vérifié ou installez directement via l&apos;application Downloader.
+            Consultez nos tutoriels pas-à-pas et configurez facilement via l&apos;application officielle Downloader.
           </p>
         </div>
 
@@ -124,8 +124,8 @@ export function AppsShowcaseSection() {
                       : "bg-white/5 text-white border border-[#1A2A4A] hover:border-[#1E7BFF] hover:bg-[#1E7BFF]/10"
                   }`}
                 >
-                  <Download className="w-4 h-4" />
-                  <span>Télécharger {app.title}</span>
+                  <BookOpen className="w-4 h-4" />
+                  <span>Guide d&apos;installation {app.title}</span>
                 </Link>
               </div>
             </div>

@@ -196,7 +196,7 @@ export function Footer() {
                   href="/applications/atlas-pro-ontv/"
                   className="text-[#9FB0CC] hover:text-white transition-colors"
                 >
-                  Atlas Pro ONTV APK (Code 782914)
+                  Guide Atlas Pro ONTV (Code 782914)
                 </Link>
               </li>
               <li>
@@ -204,7 +204,7 @@ export function Footer() {
                   href="/applications/atlas-pro-ibo/"
                   className="text-[#9FB0CC] hover:text-white transition-colors"
                 >
-                  Atlas Pro IBO APK (Code 492015)
+                  Guide Atlas Pro IBO (Code 492015)
                 </Link>
               </li>
               <li>
@@ -212,7 +212,7 @@ export function Footer() {
                   href="/applications/iptv-smarters-pro/"
                   className="text-[#9FB0CC] hover:text-white transition-colors"
                 >
-                  IPTV Smarters Pro APK (Code 820147)
+                  Guide IPTV Smarters Pro (Code 820147)
                 </Link>
               </li>
             </ul>

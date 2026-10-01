@@ -87,25 +87,25 @@ const NAV_MENU: readonly NavSection[] = [
     items: [
       {
         title: "Toutes les Applications",
-        desc: "Matrice de téléchargement APK officielle",
+        desc: "Guides d'installation et codes Downloader",
         href: "/applications/",
         icon: Download,
       },
       {
-        title: "Atlas Pro ONTV APK",
-        desc: "Code Downloader Fire Stick 782914",
+        title: "Atlas Pro ONTV",
+        desc: "Code Downloader Fire Stick : 782914",
         href: "/applications/atlas-pro-ontv/",
         icon: Zap,
       },
       {
-        title: "Atlas Pro IBO APK",
-        desc: "Code Downloader 492015",
+        title: "Atlas Pro IBO Player",
+        desc: "Code Downloader : 492015",
         href: "/applications/atlas-pro-ibo/",
         icon: Tv,
       },
       {
-        title: "IPTV Smarters Pro APK",
-        desc: "Code Downloader 820147",
+        title: "IPTV Smarters Pro",
+        desc: "Code Downloader : 820147",
         href: "/applications/iptv-smarters-pro/",
         icon: Smartphone,
       },
