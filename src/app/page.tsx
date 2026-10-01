@@ -61,11 +61,6 @@ const homepageSchema = {
       "name": "Atlas Pro Officiel France",
       "description": "Portail officiel d'abonnement Atlas Pro IPTV en France",
       "inLanguage": "fr-FR",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://iboatlaspro.com/applications/?q={search_term_string}",
-        "query-input": "required name=search_term_string",
-      },
     },
     {
       "@type": "Organization",
