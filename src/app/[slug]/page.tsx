@@ -10,6 +10,9 @@ import {
   getSubscriptionPlanBySlug,
   getAllSubscriptionPlans,
 } from "@/data/subscription-plans";
+import { NetworkSpecsSection } from "@/components/NetworkSpecsSection";
+import { DeviceCompatibilitySection } from "@/components/DeviceCompatibilitySection";
+import { OrderTimelineSection } from "@/components/OrderTimelineSection";
 import {
   Check,
   ShieldCheck,
@@ -424,6 +427,15 @@ export default async function DynamicPlanPage({ params }: PageProps) {
           </div>
         </section>
 
+        {/* Technical Network Specs & Codecs */}
+        <NetworkSpecsSection />
+
+        {/* Multi-Device Hardware Compatibility */}
+        <DeviceCompatibilitySection />
+
+        {/* Transparent Activation & Delivery Timeline */}
+        <OrderTimelineSection />
+
         {/* Interactive FAQ Section */}
         <section className="py-16 bg-[#060D1E] border-t border-[#1A2A4A]">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -452,6 +464,19 @@ export default async function DynamicPlanPage({ params }: PageProps) {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Editorial E-E-A-T Technical Transparency Badge */}
+        <section className="py-8 bg-[#040A17] border-t border-[#1A2A4A]/60">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-xs text-[#9FB0CC] space-y-2">
+            <p className="flex items-center justify-center gap-2 font-medium text-[#CBD5E1]">
+              <ShieldCheck className="w-4 h-4 text-emerald-400" />
+              <span>Guide d&apos;évaluation et spécifications vérifiées par l&apos;équipe technique iboatlaspro</span>
+            </p>
+            <p>
+              Dernière révision : Octobre 2026. Tests de débit et décodage validés sur Tizen OS, webOS, Fire OS 8 et Android 14.
+            </p>
           </div>
         </section>
 
