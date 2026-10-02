@@ -153,50 +153,26 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Column 2: Chaînes & Applications */}
+          {/* Column 2: Applications & Guides */}
           <div className="space-y-3">
             <h3 className="text-xs font-bold text-white uppercase tracking-wider">
-              Chaînes & Téléchargements
+              Applications &amp; Téléchargements
             </h3>
             <ul className="space-y-2 text-xs">
-              <li>
-                <Link
-                  href="/chaines/sports/"
-                  className="text-[#9FB0CC] hover:text-white transition-colors"
-                >
-                  Chaînes Sport 4K 50FPS
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/chaines/francaises/"
-                  className="text-[#9FB0CC] hover:text-white transition-colors"
-                >
-                  Chaînes TV Françaises & TNT
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/chaines/internationales/"
-                  className="text-[#9FB0CC] hover:text-white transition-colors"
-                >
-                  Chaînes Internationales (+50 pays)
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/chaines/"
-                  className="text-[#9FB0CC] hover:text-white transition-colors"
-                >
-                  Catalogue Complet (+10 000 chaînes)
-                </Link>
-              </li>
               <li>
                 <Link
                   href="/applications/atlas-pro-ontv/"
                   className="text-[#9FB0CC] hover:text-white transition-colors"
                 >
-                  Guide Atlas Pro ONTV (Code 782914)
+                  Atlas Pro ONTV (Code 822648)
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/applications/atlas-pro-max/"
+                  className="text-[#9FB0CC] hover:text-white transition-colors"
+                >
+                  Atlas Pro Max 4K (Code 614920)
                 </Link>
               </li>
               <li>
@@ -204,7 +180,7 @@ export function Footer() {
                   href="/applications/atlas-pro-ibo/"
                   className="text-[#9FB0CC] hover:text-white transition-colors"
                 >
-                  Guide Atlas Pro IBO (Code 492015)
+                  Atlas Pro IBO (Smart TV)
                 </Link>
               </li>
               <li>
@@ -234,15 +210,15 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/centre-d-aide/installation/smart-tv/"
+                  href="/centre-d-aide/guides/installer-atlas-pro-box-android-google-tv/"
                   className="text-[#9FB0CC] hover:text-white transition-colors"
                 >
-                  Installation Smart TV Samsung & LG
+                  Installation Box Android &amp; Google TV
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/centre-d-aide/installation/fire-tv-stick/"
+                  href="/centre-d-aide/guides/comment-installer-atlas-pro-sur-fire-tv-stick/"
                   className="text-[#9FB0CC] hover:text-white transition-colors"
                 >
                   Installation Amazon Fire TV Stick
@@ -250,7 +226,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/centre-d-aide/depannage/erreur-connexion-serveur/"
+                  href="/centre-d-aide/depannage/erreur-de-connexion-serveur-iptv/"
                   className="text-[#9FB0CC] hover:text-white transition-colors"
                 >
                   Erreur Connexion Serveur IPTV
@@ -258,7 +234,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/centre-d-aide/depannage/ecran-noir-buffering/"
+                  href="/centre-d-aide/depannage/resoudre-ecran-noir-buffering-iptv/"
                   className="text-[#9FB0CC] hover:text-white transition-colors"
                 >
                   Supprimer le Buffering IPTV
@@ -266,7 +242,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/centre-d-aide/depannage/code-expire/"
+                  href="/centre-d-aide/depannage/code-abonnement-atlas-pro-expire/"
                   className="text-[#22C55E] font-semibold hover:underline"
                 >
                   Code ou Abonnement Expiré

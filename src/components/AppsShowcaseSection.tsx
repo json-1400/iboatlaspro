@@ -5,12 +5,12 @@ export function AppsShowcaseSection() {
   const apps = [
     {
       title: "Atlas Pro ONTV",
-      version: "v3.2.1 / v4.0.2",
+      version: "v4.0.2 Stable",
       badge: "BOÎTIERS & FIRE TV",
-      downloaderCode: "782914",
+      downloaderCode: "822648",
       href: "/applications/atlas-pro-ontv/",
-      desc: "L'application historique ultra-légère conçue pour Amazon Fire Stick, Xiaomi Mi Box et boîtiers Android.",
-      features: ["Zapping ultra-rapide", "Guide EPG complet", "Léger (42 Mo)"],
+      desc: "Nouvelle version 4.0 avec interface repensée, reconnexion automatique serveur et streaming optimisé HD & 4K.",
+      features: ["Interface v4.0 fluide", "Reconnexion serveur auto", "Streaming HD & 4K"],
     },
     {
       title: "Atlas Pro Max",

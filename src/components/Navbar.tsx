@@ -7,7 +7,6 @@ import {
   ChevronDown,
   Menu,
   X,
-  Globe,
   Tv,
   Smartphone,
   ShieldCheck,
@@ -15,12 +14,11 @@ import {
   Download,
   Star,
   Zap,
-  Film,
-  Trophy,
   Wrench,
   AlertCircle,
   BookOpen,
   Users,
+  Sparkles,
 } from "lucide-react";
 import { Logo } from "@/components/Logo";
 
@@ -48,42 +46,6 @@ const NAV_MENU: readonly NavSection[] = [
     href: "/abonnement-atlas-pro-multi-ecrans/",
   },
   {
-    label: "Chaînes & VOD",
-    href: "/chaines/",
-    items: [
-      {
-        title: "Catalogue Complet",
-        desc: "Plus de 10 000 chaînes directes & replay",
-        href: "/chaines/",
-        icon: Tv,
-      },
-      {
-        title: "Chaînes Sport 4K",
-        desc: "Multi-flux direct 50 FPS & compétitions majeures",
-        href: "/chaines/sports/",
-        icon: Trophy,
-      },
-      {
-        title: "Chaînes Françaises",
-        desc: "TNT & bouquets cinéma en ultra HD",
-        href: "/chaines/francaises/",
-        icon: Tv,
-      },
-      {
-        title: "Chaînes Internationales",
-        desc: "+50 pays : Belgique, Suisse, Maghreb, UK, USA",
-        href: "/chaines/internationales/",
-        icon: Globe,
-      },
-      {
-        title: "VOD Films & Séries",
-        desc: "+50 000 titres récents en 4K UHD",
-        href: "/#vod",
-        icon: Film,
-      },
-    ],
-  },
-  {
     label: "Applications",
     href: "/applications/",
     items: [
@@ -95,13 +57,20 @@ const NAV_MENU: readonly NavSection[] = [
       },
       {
         title: "Atlas Pro ONTV",
-        desc: "Code Downloader Fire Stick : 782914",
+        desc: "Code Downloader Fire Stick : 822648",
         href: "/applications/atlas-pro-ontv/",
         icon: Zap,
       },
       {
-        title: "Atlas Pro IBO Player",
-        desc: "Code Downloader : 492015",
+        title: "Atlas Pro Max",
+        desc: "Moteur 4K HDR & Code Downloader : 614920",
+        href: "/applications/atlas-pro-max/",
+        icon: Sparkles,
+        badge: "4K HDR",
+      },
+      {
+        title: "Atlas Pro IBO",
+        desc: "Application Smart TV Tizen & webOS",
         href: "/applications/atlas-pro-ibo/",
         icon: Tv,
       },
@@ -119,27 +88,21 @@ const NAV_MENU: readonly NavSection[] = [
     items: [
       {
         title: "Centre d'Aide Hub",
-        desc: "Recherche en direct & support WhatsApp",
+        desc: "Recherche directe & support WhatsApp",
         href: "/centre-d-aide/",
         icon: HelpCircle,
       },
       {
-        title: "Guides d'Installation",
-        desc: "Smart TV, Fire Stick, Android TV & MAG",
-        href: "/centre-d-aide/installation/",
-        icon: Wrench,
+        title: "Guides & Tutoriels",
+        desc: "Smart TV, Fire Stick, IBO Player & Smarters",
+        href: "/centre-d-aide/guides/",
+        icon: BookOpen,
       },
       {
         title: "Dépannage & Erreurs",
         desc: "Solutions serveur, buffering et code expiré",
         href: "/centre-d-aide/depannage/",
         icon: AlertCircle,
-      },
-      {
-        title: "Tutoriels Applications",
-        desc: "Configuration IBO Player & Smarters",
-        href: "/centre-d-aide/tutoriels/",
-        icon: BookOpen,
       },
     ],
   },

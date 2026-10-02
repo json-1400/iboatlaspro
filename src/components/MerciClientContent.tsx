@@ -173,7 +173,7 @@ export function MerciClientContent() {
           </Link>
 
           <Link
-            href="/centre-d-aide/tutoriels/configurer-ibo-player/"
+            href="/centre-d-aide/guides/comment-configurer-ibo-player-pro/"
             className="p-5 rounded-xl bg-[#0A1428] border border-[#1A2A4A] hover:border-[#1E7BFF] transition-all group flex flex-col justify-between"
           >
             <div>
@@ -192,7 +192,7 @@ export function MerciClientContent() {
           </Link>
 
           <Link
-            href="/centre-d-aide/installation/fire-tv-stick/"
+            href="/centre-d-aide/guides/comment-installer-atlas-pro-sur-fire-tv-stick/"
             className="p-5 rounded-xl bg-[#0A1428] border border-[#1A2A4A] hover:border-[#1E7BFF] transition-all group flex flex-col justify-between"
           >
             <div>

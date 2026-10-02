@@ -9,7 +9,7 @@ export function DeviceCompatibilitySection() {
       recommendedApp: "IBO Player / Net IPTV",
       installMethod: "Téléchargement direct depuis le Samsung Smart Hub officiel",
       badge: "INSTALLATION FACILE",
-      guideHref: "/centre-d-aide/installation/smart-tv/",
+      guideHref: "/centre-d-aide/guides/comment-configurer-ibo-player-pro/",
       icon: Tv,
     },
     {
@@ -18,16 +18,16 @@ export function DeviceCompatibilitySection() {
       recommendedApp: "IBO Player Pro / Smarters",
       installMethod: "Disponible sur le LG Content Store officiel en 1 clic",
       badge: "OPTIMISÉ 4K HDR",
-      guideHref: "/centre-d-aide/installation/smart-tv/",
+      guideHref: "/centre-d-aide/guides/comment-configurer-ibo-player-pro/",
       icon: Tv,
     },
     {
       category: "Amazon Fire TV Stick",
       os: "Fire OS (Lite, 4K, 4K Max, Cube)",
-      recommendedApp: "Atlas Pro ONTV",
-      installMethod: "Via l'application Downloader avec le code vérifié 782914",
+      recommendedApp: "Atlas Pro ONTV (v4.0.2)",
+      installMethod: "Via l'application Downloader avec le code vérifié 822648",
       badge: "RECOMMANDÉ ATLAS PRO",
-      guideHref: "/centre-d-aide/installation/fire-tv-stick/",
+      guideHref: "/centre-d-aide/guides/comment-installer-atlas-pro-sur-fire-tv-stick/",
       icon: Monitor,
     },
     {
@@ -36,7 +36,7 @@ export function DeviceCompatibilitySection() {
       recommendedApp: "Atlas Pro Max (v5.0.1)",
       installMethod: "Code Downloader 614920 ou Google Play Store",
       badge: "BUFFER ADAPTATIF",
-      guideHref: "/centre-d-aide/installation/android-tv/",
+      guideHref: "/centre-d-aide/guides/installer-atlas-pro-box-android-google-tv/",
       icon: Monitor,
     },
     {
@@ -45,7 +45,7 @@ export function DeviceCompatibilitySection() {
       recommendedApp: "IPTV Smarters Pro",
       installMethod: "Téléchargement sécurisé depuis l'Apple App Store",
       badge: "100% APPLE STORE",
-      guideHref: "/centre-d-aide/installation/iphone-ios/",
+      guideHref: "/centre-d-aide/guides/comment-configurer-iptv-smarters-pro/",
       icon: Smartphone,
     },
     {
@@ -54,7 +54,7 @@ export function DeviceCompatibilitySection() {
       recommendedApp: "IPTV Smarters Pro / VLC",
       installMethod: "Application native PC ou lecteur multimédia universel",
       badge: "MULTI-FENÊTRES",
-      guideHref: "/centre-d-aide/installation/pc-windows/",
+      guideHref: "/centre-d-aide/guides/comment-configurer-iptv-smarters-pro/",
       icon: Laptop,
     },
   ];

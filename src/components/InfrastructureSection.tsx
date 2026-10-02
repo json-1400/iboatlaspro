@@ -113,7 +113,7 @@ export function InfrastructureSection() {
         {/* Diagnostic Link Bridge */}
         <div className="mt-12 text-center">
           <Link
-            href="/centre-d-aide/depannage/ne-peut-pas-se-connecter-au-serveur/"
+            href="/centre-d-aide/depannage/atlas-pro-ne-peut-pas-se-connecter-au-serveur/"
             className="inline-flex items-center gap-2 text-xs sm:text-sm text-[#9FB0CC] hover:text-[#1E7BFF] transition-colors"
           >
             <span>Un problème de connexion avec votre fournisseur Internet ? Consultez notre guide de configuration DNS</span>
